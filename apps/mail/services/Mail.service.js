@@ -5,9 +5,11 @@ const MAIL_KEY = 'mailDB'
 const loggedinUser = {
     email: 'user@appsus.com',
     fullname: 'Mahatma Appsus'
-   }
+}
 
-export const carService = {
+_createMails()
+
+export const MailService = {
     query,
     get,
     remove,
@@ -32,7 +34,7 @@ function query(filterBy = {}) {
 
 function get(MailId) {
     return storageService.get(MAIL_KEY, MailId)
-        // .then(_setNextPrevCarId)
+    // .then(_setNextPrevCarId)
 }
 
 function remove(mailId) {
@@ -51,12 +53,26 @@ function _createMails() {
     let mails = utilService.loadFromStorage(MAIL_KEY)
     if (!mails || !mails.length) {
         mails = []
-        mails.push(_createMail('audu', 300))
-        mails.push(_createMail('fiak', 120))
-        mails.push(_createMail('subali', 100))
-        mails.push(_createMail('mitsu', 150))
+        mails.push(_createMail('gloves', utilService.makeLorem(10)))
+        mails.push(_createMail('birds', utilService.makeLorem(10)))
+        mails.push(_createMail('gold', utilService.makeLorem(10)))
+        mails.push(_createMail('avatar', utilService.makeLorem(10)))
         utilService.saveToStorage(MAIL_KEY, mails)
     }
+}
+
+function _createMail(subject, body) {
+    return {
+        id: utilService.makeId(),
+        subject,
+        body,
+        isRead: false,
+        sentAt: 1551133930594,
+        removedAt: null,
+        from: 'momo@momo.com',
+        to: 'user@appsus.com'
+    }
+
 }
 
 // function getEmptyMail(vendor = '', maxSpeed = 0) {
