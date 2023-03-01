@@ -18,8 +18,22 @@
     align-items: center;
 }
 
+.mail-logo {
+    display: flex;
+    align-items: center;
+}
+
+.mail-logo-img {
+    height: 50px;
+    width: 60px;
+    background-image: url(https://ssl.gstatic.com/gb/images/sprites/p_1x_451184c1472c.png);
+    background-position-y: 885px;
+}
+
 .main-mail-header h1 {
     margin: 0;
+    font-family: cursive;
+    font-size: 1.6rem;
 }
 
 .mail-list li {

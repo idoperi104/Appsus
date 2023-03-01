@@ -14,14 +14,14 @@ export default {
     },
     methods: {
         filter() {
+            console.log('filterBy changed', this.filterBy)
             this.$emit('filter', this.filterBy)
         }
     },
     watch: {
         filterBy: {
             handler() {
-                console.log('filterBy changed', this.filterBy)
-                this.$emit('filter', this.filterBy)
+                this.filter()
             },
             deep: true
         },

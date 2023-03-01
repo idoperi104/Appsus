@@ -1,5 +1,5 @@
 import { MailService } from '../services/mail.service.js'
-import { eventBus } from "../../../services/event-bus.service.js"
+import { eventBus, showSuccessMsg, showErrorMsg } from "../../../services/event-bus.service.js"
 
 import MailFilter from '../cmps/MailFilter.js'
 import MailList from '../cmps/MailList.js'
@@ -10,12 +10,16 @@ export default {
     template: `
     <section class="mail-index">
         <header class="main-mail-header">
-            <h1>im mail index</h1>
+            <article class="mail-logo">
+                <div class="mail-logo-img"></div>
+                <h1>G'AMAL</h1>
+            </article>
+           
             <MailFilter @filter="setFilterBy" />
         </header>
         <MailFolderList :unReadCount="totalUnReadMails" class="mail-folder-list" @compose="showCompose" @filter="setFilterBy" />
         <MailList
-            :mails="mails"
+            :mails="filteredMails"
             @remove="removeMail"
             @unRead="setUnRead"        />
         <MailCompose
@@ -57,20 +61,39 @@ export default {
             MailService.query(this.filterBy)
                 .then(mails => {
                     this.mails = mails
+                    console.log("this.mails: ", mails);
                 })
+
+
         },
         showCompose() {
             this.isCompose = true
         },
         removeMail(mailId) {
-            MailService.get(mailId)
-                .then(mail => {
-                    console.log("mail: ", mail);
-                    mail.removedAt
-                        ? MailService.remove(mail.id)
-                        : mail.removedAt = Date.now()
-                })
-                .then(this.filterMails)
+            if (this.filterBy.status !== 'trash') {
+                MailService.get(mailId)
+                    .then(mail => {
+                        mail.removedAt = Date.now()
+                        return MailService.save(mail)
+                    })
+                    .then(this.filterMails)
+                    .then(() => {
+                        showSuccessMsg('Mail moved to trash')
+                    })
+                    .catch(err => {
+                        showErrorMsg('Mail remove failed')
+                    })
+            } else {
+                MailService.remove(mailId)
+                    .then(this.filterMails)
+                    .then(() => {
+                        showSuccessMsg('Mail Deleted for good')
+                    })
+                    .catch(err => {
+                        showErrorMsg('Mail Delete failed')
+                    })
+            }
+
 
         },
         setUnRead(mail) {
@@ -81,7 +104,16 @@ export default {
         },
         sandMail(mail) {
             MailService.save(mail)
-                .then(this.isCompose = false)
+                .then(() => {
+                    this.isCompose = false
+                    this.filterMails()
+                })
+                .then(() => {
+                    showSuccessMsg('Email sent')
+                })
+                .catch(err => {
+                    showErrorMsg('Email failed to send')
+                })
         },
         setToRead(mailId) {
             MailService.get(mailId)
@@ -96,6 +128,13 @@ export default {
         totalUnReadMails() {
             return this.mails.filter(mail => !mail.isRead).length
         },
+        filteredMails() {
+            if (!this.filterBy.subject) return this.mails
+            const regex = new RegExp(this.filterBy.subject, 'i')
+            return this.mails.filter(mail => {
+                return regex.test(mail.subject)
+            })
+        }
     },
     components: {
         MailList,

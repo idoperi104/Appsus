@@ -1,4 +1,4 @@
-.user-msg {
+/* .user-msg {
     position: fixed;
     top: 40px;
     right: 20px;
@@ -7,11 +7,49 @@
     background-color: rgb(208, 206, 139);
     padding: 10px;
     border-radius: 5px;
-    /* transition: opacity 1s; */
 }
 .success {
     background-color: rgb(88, 130, 88);
 }
 .error {
     background-color: rgb(187, 104, 104);
+} */
+
+.user-msg {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+    font-size: 1.2rem;
+    position: fixed;
+    bottom: 0.5em;
+    left: 0.5em;
+    opacity: 0;
+    width: fit-content;
+    text-align: center;
+    border-radius: 3px;
+    transition: opacity 1s;
+}
+
+.user-msg p {
+    margin: 0;
+}
+
+.user-msg.success {
+    background-color: var(--clrmsg);
+    color: var(--clr1)
+}
+
+.user-msg.show {
+    opacity: 1;
+}
+
+.user-msg.error {
+    background-color: lightcoral;
+}
+
+.user-msg button {
+    min-height: 21px;
+    min-width: 21px;
+    align-self: center;
+    margin-inline-start: 30px;
 }

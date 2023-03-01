@@ -3,6 +3,9 @@
 }
 
 .mail-preview {
+    display: grid;
+    grid-template-columns: 20% 70% 10%;
+    align-items: center;
     cursor: pointer;
     background-color: var(--gray1);
     padding: 8px;
@@ -33,4 +36,9 @@
     font-size: 1.3rem;
     /* line-height: 1.3rem; */
     margin: 0;
+}
+
+.mail-preview h3 {
+    margin: 0;
+    text-overflow: hiden;
 }

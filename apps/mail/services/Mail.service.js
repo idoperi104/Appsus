@@ -20,15 +20,26 @@ export const MailService = {
 function query(filterBy = {}) {
     return storageService.query(MAIL_KEY)
         .then(mails => {
-            const regex = new RegExp(filterBy.subject, 'i')
             return mails.filter(mail => {
-                return regex.test(mail.subject)
-                // && (filterBy.status === 'inbox') ? mail.to === loggedinUser.email : true
-                // && (filterBy.status === 'sent') ? mail.from === loggedinUser.email : true
-                // && (filterBy.status === 'trash') ? typeof mail.removedAt === Number : true
-                // && (filterBy.status === 'darft') ? mail.removedAt : true
+                return _setStatusFilter(mail, filterBy.status)
+
             })
         })
+}
+
+function _setStatusFilter(mail, status) {
+    switch (status) {
+        case 'inbox':
+            return mail.to === loggedinUser.email && !mail.removedAt
+        case 'sent':
+            return mail.from === loggedinUser.email && !mail.removedAt
+        case 'trash':
+            return !!mail.removedAt
+        // case 'draft':
+        default:
+            break;
+    }
+
 }
 
 function get(MailId) {
@@ -53,21 +64,22 @@ function _createMails() {
     let mails = utilService.loadFromStorage(MAIL_KEY)
     if (!mails || !mails.length) {
         mails = []
-        mails.push(_createMail('gloves', utilService.makeLorem(10)))
-        mails.push(_createMail('birds', utilService.makeLorem(10)))
-        mails.push(_createMail('gold', utilService.makeLorem(10)))
-        mails.push(_createMail('avatar', utilService.makeLorem(10)))
+        mails.push(_createMail('gloves', utilService.makeLorem(10), Date.now() - (1000 * 60 * 60 * 24 * 1)))
+        mails.push(_createMail('birds', utilService.makeLorem(10), Date.now() - (1000 * 60 * 60 * 24 * 2)))
+        mails.push(_createMail('gold', utilService.makeLorem(10), Date.now() - (1000 * 60 * 60 * 24 * 5)))
+        mails.push(_createMail('avatar', utilService.makeLorem(10), Date.now() - (1000 * 60 * 60 * 24 * 12)))
+        mails.push(_createMail('avatar is the bast tv show ever!', utilService.makeLorem(10), Date.now() - (1000 * 60 * 60 * 5)))
         utilService.saveToStorage(MAIL_KEY, mails)
     }
 }
 
-function _createMail(subject, body) {
+function _createMail(subject, body, sentAt) {
     return {
         id: utilService.makeId(),
         subject,
         body,
         isRead: false,
-        sentAt: 1551133930594,
+        sentAt,
         removedAt: null,
         from: 'momo@momo.com',
         to: 'user@appsus.com'
