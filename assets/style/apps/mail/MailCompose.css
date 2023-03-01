@@ -23,6 +23,7 @@
 .mail-compose form button {
     background-color: var(--mail3);
     border-radius: 555px;
+    width: 95px;
 }
 
 .mail-compose form>* {

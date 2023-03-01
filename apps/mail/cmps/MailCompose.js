@@ -8,9 +8,9 @@ export default {
                     <h2>New Massage</h2>
                 </header>
                
-             <input type="text" v-model="mail.to" placeholder="to: (Email address)" />
-              <input type="text" v-model="mail.subject" placeholder="subject" />
-              <textarea v-model="mail.body" cols="50" rows="18"></textarea>
+             <input required type="text" v-model="mail.to" placeholder="to: (Email address)" />
+              <input required type="text" v-model="mail.subject" placeholder="subject" />
+              <textarea required v-model="mail.body" cols="50" rows="18"></textarea>
               <button>Sand</button>
             </form>
         </section>
