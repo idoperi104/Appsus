@@ -6,18 +6,21 @@ import NoteEdit from '../cmps/NoteEdit.js'
 
 export default {
     template: `
-        <h1>im note index and tomer here</h1>
+        <button class="btn-add-note" @click="isOnEdit=true">add note</button>
 
         <section class="note-index">
             <!-- <RouterLink to="/note/edit">Add a note</RouterLink> -->
             <NoteEdit
-                @saved="setNotes"   
+                @saved="setNotes"
+                v-if="isOnEdit"  
+                @isOnEdit="setIsOnEdit" 
             />
 
             <NoteList
                 :notes="notes"
                 v-if="notes"
                 @remove="removeNote"
+                @isOnEdit="setIsOnEdit" 
             />
 
         </section>
@@ -25,6 +28,13 @@ export default {
     created() {
         noteService.query()
             .then(notes => this.notes = notes)
+    },
+    data() {
+        return {
+            notes: null,
+            filterBy: {},
+            isOnEdit: false,
+        }
     },
     methods: {
         removeNote(noteId) {
@@ -44,12 +54,10 @@ export default {
         setNotes() {
             noteService.query()
                 .then(notes => this.notes = notes)
-        }
-    },
-    data() {
-        return {
-            notes: null,
-            filterBy: {},
+        },
+        setIsOnEdit(isOn){
+            console.log(isOn);
+            this.isOnEdit = isOn
         }
     },
     components: {

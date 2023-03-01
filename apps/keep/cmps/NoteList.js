@@ -23,6 +23,7 @@ export default {
             this.$emit('remove', noteId)
         },
         edit(noteId) {
+            this.$emit('isOnEdit', true)
             this.$router.push({query:{noteId:noteId}})
         },
         showDetails(noteId) {

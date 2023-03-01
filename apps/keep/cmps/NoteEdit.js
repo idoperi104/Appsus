@@ -4,8 +4,8 @@ import { showUserMsg, showSuccessMsg, showErrorMsg } from '../../../services/eve
 export default {
     template: `
         <section class="note-edit">
-            <h2>Add a note</h2>
             <form @submit.prevent="save">
+                <button @click="closeEdit">x</button>
                 <label for="title">title:</label>
                 <input name="title" type="text" v-model="note.info.title" placeholder="write note">
                 <label for="txt">txt:</label>
@@ -45,6 +45,7 @@ export default {
                 .then(savedNote => {
                     this.note = noteService.getEmptyNote()
                     this.$emit('saved', savedNote)
+                    this.$emit('isOnEdit', false)
                     this.$router.push({query:{noteId:''}})
                     showSuccessMsg('note saved')
                 })
@@ -56,6 +57,9 @@ export default {
             if(!this.noteId) return
             noteService.get(this.noteId)
                 .then(note => this.note = note)
+        },
+        closeEdit(){
+            this.$emit('isOnEdit', false)
         }
     },
 
