@@ -4,47 +4,51 @@ import { showUserMsg, showSuccessMsg, showErrorMsg } from '../../../services/eve
 import NoteList from '../cmps/NoteList.js'
 import NoteEdit from '../cmps/NoteEdit.js'
 import NoteFilter from '../cmps/NoteFilter.js'
+import NoteSearch from '../cmps/NoteSearch.js'
 
 export default {
     template: `
-
         <section class="note-index">
-            <button class="btn-add-note" @click="isOnEdit=true">add note</button>
+            <section class="note-nav">
+                <NoteFilter
+                    @filter="setFilterBy"
+                />
+            </section>
 
-            <NoteFilter
-                @filter="setFilterBy"
-            />
+            <section class="note-header">
+                <NoteSearch
+                    @filter="setFilterBy"
+                />
+            </section>
 
-            <NoteEdit
-                @saved="setNotes"
-                v-if="isOnEdit"  
-                @isOnEdit="setIsOnEdit" 
-            />
 
-            <NoteList
-                :notes="getPinned"
-                v-if="notes && getPinned"
-                @remove="removeNote"
-                @isOnEdit="setIsOnEdit"
-                @pin="togglePin" 
-                @duplicate="duplicateNote" 
-            />
-            <NoteList
-                :notes="getUnPinned"
-                v-if="notes"
-                @remove="removeNote"
-                @isOnEdit="setIsOnEdit"
-                @pin="togglePin" 
-                @duplicate="duplicateNote"
-            />
-            <!-- <NoteList
-                :notes="notes"
-                v-if="notes"
-                @remove="removeNote"
-                @isOnEdit="setIsOnEdit"
-                @pin="togglePin" 
-            /> -->
+            <section class="note-main">
 
+                <button class="btn-add-note" @click="isOnEdit=true">add note</button>
+
+                <NoteEdit
+                    @saved="setNotes"
+                    v-if="isOnEdit"  
+                    @isOnEdit="setIsOnEdit" 
+                />
+    
+                <NoteList
+                    :notes="getPinned"
+                    v-if="notes && getPinned"
+                    @remove="removeNote"
+                    @isOnEdit="setIsOnEdit"
+                    @pin="togglePin" 
+                    @duplicate="duplicateNote" 
+                />
+                <NoteList
+                    :notes="getUnPinned"
+                    v-if="notes"
+                    @remove="removeNote"
+                    @isOnEdit="setIsOnEdit"
+                    @pin="togglePin" 
+                    @duplicate="duplicateNote"
+                />
+            </section>
         </section>
     `,
     created() {
@@ -89,12 +93,12 @@ export default {
             note.isPinned = !note.isPinned
             noteService.save(note)
         },
-        duplicateNote(note){
+        duplicateNote(note) {
             console.log(note);
             const dup = JSON.parse(JSON.stringify(note))
             dup.id = ''
             noteService.save(dup)
-                .then((note)=>this.notes.push(note))
+                .then((note) => this.notes.push(note))
         },
     },
     computed: {
@@ -109,5 +113,6 @@ export default {
         NoteList,
         NoteEdit,
         NoteFilter,
+        NoteSearch,
     }
 }

@@ -1,0 +1,24 @@
+
+
+.note-filter {
+    text-align: center;
+}
+
+.note-filter > input {
+    display: none;
+}
+
+
+.note-filter > label{
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    /* scale: 1.1; */
+    transition: all 0.1s;
+}
+.note-filter > label:hover{
+    scale: 1.2;
+}
+
+.note-filter > input:checked + label{
+    scale: 1.5;
+}
