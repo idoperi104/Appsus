@@ -13,8 +13,16 @@ export const noteService = {
     getEmptyNote,
 }
 
-function query() {
+function query(filterBy = {}) {
     return storageService.query(NOTE_KEY)
+        .then(notes => {
+            const regexType = new RegExp(filterBy.type, 'i')
+            const regex = new RegExp(filterBy.txt, 'i')
+            return notes.filter(note => {
+                return (regex.test(note.info.txt) || regex.test(note.info.title))
+                && regexType.test(note.type)
+            })
+        })
 }
 
 function get(noteId) {
@@ -56,7 +64,7 @@ function _createNotes() {
                 id: 'n101',
                 createdAt: 1112222,
                 type: 'NoteTxt',
-                isPinned: true,
+                isPinned: false,
                 style: {
                     backgroundColor: '#fff'
                 }, info: {
@@ -78,7 +86,7 @@ function _createNotes() {
                 id: 'n301',
                 createdAt: 1112222,
                 type: 'NoteTxt',
-                isPinned: true,
+                isPinned: false,
                 style: {
                     backgroundColor: '#fff'
                 }, info: {
@@ -117,4 +125,3 @@ function _setNextPrevNoteId(note) {
         return note
     })
 }
-

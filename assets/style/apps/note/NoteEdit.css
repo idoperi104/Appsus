@@ -15,7 +15,7 @@
     /* height: 300px; */
     width: 400px;
     margin: auto;
-    margin-block-start: 30%;
+    margin-block-start: min(30%, 150px);
 
     display: grid;
     justify-items: start;

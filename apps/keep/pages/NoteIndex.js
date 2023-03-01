@@ -22,17 +22,31 @@ export default {
             />
 
             <NoteList
-                :notes="filteredNotes"
+                :notes="getPinned"
+                v-if="notes && getPinned"
+                @remove="removeNote"
+                @isOnEdit="setIsOnEdit"
+                @pin="togglePin" 
+            />
+            <NoteList
+                :notes="getUnPinned"
                 v-if="notes"
                 @remove="removeNote"
-                @isOnEdit="setIsOnEdit" 
+                @isOnEdit="setIsOnEdit"
+                @pin="togglePin" 
             />
+            <!-- <NoteList
+                :notes="notes"
+                v-if="notes"
+                @remove="removeNote"
+                @isOnEdit="setIsOnEdit"
+                @pin="togglePin" 
+            /> -->
 
         </section>
     `,
     created() {
-        noteService.query()
-            .then(notes => this.notes = notes)
+        this.filteredNotes()
     },
     data() {
         return {
@@ -55,31 +69,31 @@ export default {
         },
         setFilterBy(filterBy) {
             this.filterBy = filterBy
+            this.filteredNotes()
         },
         setNotes() {
-            noteService.query()
-                .then(notes => this.notes = notes)
+            this.filterBy = {}
+            this.filteredNotes()
         },
         setIsOnEdit(isOn) {
             console.log(isOn);
             this.isOnEdit = isOn
+        },
+        filteredNotes() {
+            noteService.query(this.filterBy)
+                .then(notes => this.notes = notes)
+        },
+        togglePin(note) {
+            note.isPinned = !note.isPinned
+            noteService.save(note)
         }
     },
     computed: {
-        filteredNotes() {
-            console.log(this.filterBy);
-            const regexType = new RegExp(this.filterBy.type, 'i')
-            const regex = new RegExp(this.filterBy.txt, 'i')
-            return this.notes.filter(note => {
-                return (regex.test(note.info.txt) || regex.test(note.info.title))
-                && regexType.test(note.type)
-            })
+        getPinned() {
+            return this.notes.filter(note => note.isPinned)
         },
-        orderedNotes() {
-            var filtered = this.filteredNotes()
-            var ordered = filtered.map(note => {
-                return
-            })
+        getUnPinned() {
+            return this.notes.filter(note => !note.isPinned)
         }
     },
     components: {

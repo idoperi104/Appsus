@@ -8,15 +8,15 @@ export default {
                 type="text" />
             <br/>
 
-            <input type="radio" id="all" value="" v-model="filterBy.type">
+            <input @input="filter" type="radio" id="all" value="" v-model="filterBy.type">
             <label for="all">all</label><br>
-            <input type="radio" id="txt" value="NoteTxt" v-model="filterBy.type">
+            <input @input="filter" type="radio" id="txt" value="NoteTxt" v-model="filterBy.type">
             <label for="txt">txt</label><br>
-            <input type="radio" id="img" value="NoteImg" v-model="filterBy.type">
+            <input @input="filter" type="radio" id="img" value="NoteImg" v-model="filterBy.type">
             <label for="img">img</label><br>
-            <input type="radio" id="vid" value="NoteVideo" v-model="filterBy.type">
+            <input @input="filter" type="radio" id="vid" value="NoteVideo" v-model="filterBy.type">
             <label for="vid">vid</label><br>
-            <input type="radio" id="todo" value="NoteTodos" v-model="filterBy.type">
+            <input @input="filter" type="radio" id="todo" value="NoteTodos" v-model="filterBy.type">
             <label for="todo">todo</label><br>
             
         </section>
@@ -31,7 +31,7 @@ export default {
             this.$emit('filter', this.filterBy)
         }
     },
-    created() {
-        this.filter()
-    },
+    // created() {
+    //     this.filter()
+    // },
 }

@@ -5,7 +5,7 @@ export default {
     template: `
         <section class="note-list">
             <ul>
-                <li v-for="note in notes" :style={backgroundColor:note.style.backgroundColor} :key="note.id">
+                <li v-for="note in notes" :style=getStyle(note) :key="note.id">
                     <NotePreview :note="note"/>
                     <!-- <RouterLink :to="'/car/'+car.id">Details</RouterLink> | -->
                     <!-- <RouterLink :to="'/note/edit/'+note.id">Edit</RouterLink> | -->
@@ -14,6 +14,7 @@ export default {
                     <button hidden @click="showDetails(note.id)">Details</button>
                     <button @click="edit(note.id)">edit</button>
                     <button @click="remove(note.id)">x</button>
+                    <button @click="togglePin(note)">pin</button>
                 </li>
             </ul>
         </section>
@@ -31,9 +32,18 @@ export default {
             this.$emit('isOnEdit', true)
             this.$router.push({query:{noteId:noteId}})
         },
+        togglePin(note) {
+            this.$emit('pin', note)
+        },
         showDetails(noteId) {
             this.$emit('show-details', noteId)
         },
+        getStyle(note){
+            return {
+                backgroundColor : note.style.backgroundColor,
+                borderColor: (note.isPinned)? 'red' : 'black'
+            }
+        }
     },
     components: {
         NotePreview,

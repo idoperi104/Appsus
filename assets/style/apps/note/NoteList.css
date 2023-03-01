@@ -1,10 +1,8 @@
-.note-list ul {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
 
+.note-list ul {
+    columns: auto 12em;
     padding: 5px;
-    background-color: lightblue;
+    /* background-color: lightblue; */
     list-style-type: none;
 }
 .note-list ul li{
@@ -15,5 +13,11 @@
 .note-list li{
     border: 1px solid black;
     border-radius: .5rem;
+    break-inside: avoid-column;
+    /* background-color: lightcyan; */
+}
+
+.note-list li:not(:first-of-type){
+    margin-block-start: 1rem;
     /* background-color: lightcyan; */
 }
