@@ -27,6 +27,7 @@ export default {
                 @remove="removeNote"
                 @isOnEdit="setIsOnEdit"
                 @pin="togglePin" 
+                @duplicate="duplicateNote" 
             />
             <NoteList
                 :notes="getUnPinned"
@@ -34,6 +35,7 @@ export default {
                 @remove="removeNote"
                 @isOnEdit="setIsOnEdit"
                 @pin="togglePin" 
+                @duplicate="duplicateNote"
             />
             <!-- <NoteList
                 :notes="notes"
@@ -86,7 +88,14 @@ export default {
         togglePin(note) {
             note.isPinned = !note.isPinned
             noteService.save(note)
-        }
+        },
+        duplicateNote(note){
+            console.log(note);
+            const dup = JSON.parse(JSON.stringify(note))
+            dup.id = ''
+            noteService.save(dup)
+                .then((note)=>this.notes.push(note))
+        },
     },
     computed: {
         getPinned() {

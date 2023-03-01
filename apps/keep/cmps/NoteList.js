@@ -15,6 +15,7 @@ export default {
                     <button @click="edit(note.id)">edit</button>
                     <button @click="remove(note.id)">x</button>
                     <button @click="togglePin(note)">pin</button>
+                    <button @click="duplicate(note)">dup</button>
                 </li>
             </ul>
         </section>
@@ -34,6 +35,9 @@ export default {
         },
         togglePin(note) {
             this.$emit('pin', note)
+        },
+        duplicate(note) {
+            this.$emit('duplicate', note)
         },
         showDetails(noteId) {
             this.$emit('show-details', noteId)
