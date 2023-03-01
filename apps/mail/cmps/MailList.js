@@ -9,7 +9,8 @@ export default {
                     <RouterLink :to="{name:'MailDetails', params:{mailId:mail.id}}">
                         <MailPreview :mail="mail"/>
                     </RouterLink> 
-                    <button class="mail-btn-remove" @click="remove(mail.id)">x</button>
+                    <button class="mail-btn-remove" data-title="Move To trash" @click="remove(mail.id)">x</button>
+                    <button class="mail-btn-unRead" data-title="Un Read" @click="unRead(mail)">👁️</button>
                 </li>
             </ul>
         </section>
@@ -17,7 +18,10 @@ export default {
     methods: {
         remove(mailId) {
             this.$emit('remove', mailId)
-        }
+        },
+        unRead(mail) {
+            this.$emit('unRead', mail)
+        },
 
     },
     components: {

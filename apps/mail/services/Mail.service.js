@@ -23,10 +23,10 @@ function query(filterBy = {}) {
             const regex = new RegExp(filterBy.subject, 'i')
             return mails.filter(mail => {
                 return regex.test(mail.subject)
-                && (filterBy.status === 'inbox') ? mail.to === loggedinUser.email : true
-                && (filterBy.status === 'sent') ? mail.from === loggedinUser.email : true
-                && (filterBy.status === 'trash') ? mail.removedAt : true
-                && (filterBy.status === 'darft') ? mail.removedAt : true
+                // && (filterBy.status === 'inbox') ? mail.to === loggedinUser.email : true
+                // && (filterBy.status === 'sent') ? mail.from === loggedinUser.email : true
+                // && (filterBy.status === 'trash') ? typeof mail.removedAt === Number : true
+                // && (filterBy.status === 'darft') ? mail.removedAt : true
             })
         })
 }

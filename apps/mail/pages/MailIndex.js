@@ -17,7 +17,7 @@ export default {
         <MailList
             :mails="mails"
             @remove="removeMail"
-        />
+            @unRead="setUnRead"        />
         <MailCompose
             v-if="isCompose"
             @sand="sandMail"
@@ -60,12 +60,24 @@ export default {
                 })
         },
         showCompose() {
-            console.log('here');
             this.isCompose = true
         },
         removeMail(mailId) {
-            MailService.remove(mailId)
+            MailService.get(mailId)
+                .then(mail => {
+                    console.log("mail: ", mail);
+                    mail.removedAt
+                        ? MailService.remove(mail.id)
+                        : mail.removedAt = Date.now()
+                })
                 .then(this.filterMails)
+
+        },
+        setUnRead(mail) {
+            mail.isRead = !mail.isRead
+            MailService.save(mail)
+                .then(mail => console.log(mail))
+
         },
         sandMail(mail) {
             MailService.save(mail)
@@ -82,7 +94,7 @@ export default {
     },
     computed: {
         totalUnReadMails() {
-           return this.mails.filter(mail => !mail.isRead).length
+            return this.mails.filter(mail => !mail.isRead).length
         },
     },
     components: {
