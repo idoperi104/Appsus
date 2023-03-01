@@ -1,0 +1,12 @@
+.mail-folder-list {
+    text-align: center;
+}
+
+.mail-folder-list ul li {
+    font-size: 1.3em;
+    cursor: pointer;
+    margin: 0 0 1em;
+}
+.mail-folder-list li:first-child {
+    margin: 1em 0 1em;
+}

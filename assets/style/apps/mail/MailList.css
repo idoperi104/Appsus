@@ -1,0 +1,21 @@
+.mail-list {
+    padding: 10px;
+}
+
+.mail-preview {
+    background-color: var(--gray1);
+    padding: 8px;
+    border-radius: 7px;
+    box-shadow: 0 0 1px black;
+    margin-bottom: 10px;
+}
+
+.mail-preview ul {
+    display: flex;
+    align-items: flex-end;
+    margin: 0 0 7px;
+}
+
+.mail-preview h2 {
+    font-size: 1.3rem;
+}
