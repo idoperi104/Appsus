@@ -11,7 +11,7 @@ export default {
             <h1>im mail index</h1>
             <MailFilter @filter="setFilterBy" />
         </header>
-        <MailFolderList @filter="setFilterBy" />
+        <MailFolderList class="mail-folder-list" @filter="setFilterBy" />
         <MailList 
         :mails="mails"
         />

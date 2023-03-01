@@ -1,7 +1,7 @@
 export default {
     template: `
         <section class="mail-folder-list">
-            <ul>
+            <ul class="clean-list">
                 <li @click="filterBy.status = 'inbox'">Inbox</li>
                 <li @click="filterBy.status = 'sent'">Sent</li>
                 <li @click="filterBy.status = 'trash'">Trash</li>
