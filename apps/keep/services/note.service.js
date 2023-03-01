@@ -40,10 +40,10 @@ function getEmptyNote() {
         type: 'NoteTxt',
         isPinned: true,
         style: {
-            backgroundColor: '#00d'
+            backgroundColor: '#eee'
         },
         info: {
-            txt: 'empty note!'
+            txt: ''
         }
     }
 }
@@ -58,7 +58,7 @@ function _createNotes() {
                 type: 'NoteTxt',
                 isPinned: true,
                 style: {
-                    backgroundColor: '#00d'
+                    backgroundColor: '#fff'
                 }, info: {
                     txt: 'Fullstack Me Baby!'
                 }
@@ -69,9 +69,9 @@ function _createNotes() {
                 type: 'NoteTxt',
                 isPinned: true,
                 style: {
-                    backgroundColor: '#00d'
+                    backgroundColor: '#eee'
                 }, info: {
-                    txt: 'Fullstack kkkkk fffffff!'
+                    txt: utilService.makeLorem(30)
                 }
             },
             {
@@ -80,7 +80,7 @@ function _createNotes() {
                 type: 'NoteTxt',
                 isPinned: true,
                 style: {
-                    backgroundColor: '#00d'
+                    backgroundColor: '#fff'
                 }, info: {
                     txt: 'puki muki shuki!'
                 }
@@ -91,9 +91,9 @@ function _createNotes() {
                 type: 'NoteTxt',
                 isPinned: true,
                 style: {
-                    backgroundColor: '#00d'
+                    backgroundColor: '#eee'
                 }, info: {
-                    txt: 'ido roei itay!'
+                    txt: utilService.makeLorem()
                 }
             },
         ]

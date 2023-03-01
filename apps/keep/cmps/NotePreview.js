@@ -1,9 +1,14 @@
 export default {
     props: ['note'],
     template: `
-        <article class="note-preview">
-            <h2>{{note.id}}</h2>
-            <pre>{{note}}</pre>
+        <article :style="styleObject" class="note-preview">
+            <h2>{{note.info.title}}</h2>
+            <p>{{note.info.txt}}</p>
         </article>
     `,
+    computed: {
+        styleObject() {
+            return this.note.style
+        }
+    }
 }

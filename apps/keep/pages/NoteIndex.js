@@ -2,12 +2,18 @@ import { noteService } from "../services/note.service.js"
 import { showUserMsg, showSuccessMsg, showErrorMsg } from '../../../services/event-bus.service.js'
 
 import NoteList from '../cmps/NoteList.js'
+// import NoteEdit from './NoteEdit.js'
 
 export default {
     template: `
         <h1>im note index and tomer here</h1>
-        <!-- <pre>{{notes}}</pre> -->
+
         <section class="note-index">
+            <RouterLink to="/note/edit">Add a note</RouterLink>
+            <!-- <NoteEdit
+                @saved="setNotes"   
+            /> -->
+
             <NoteList
                 :notes="notes"
                 v-if="notes"
@@ -35,6 +41,10 @@ export default {
         setFilterBy(filterBy) {
             this.filterBy = filterBy
         },
+        setNotes() {
+            noteService.query()
+                .then(notes => this.notes = notes)
+        }
     },
     data() {
         return {
@@ -44,5 +54,6 @@ export default {
     },
     components: {
         NoteList,
+        // NoteEdit,
     }
 }

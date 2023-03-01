@@ -14,7 +14,7 @@ export default {
                 { path: '/', name: 'Home |' },
                 { path: '/about', name: 'About |' },
                 { path: '/mail', name: 'Mail |' },
-                { path: '/keep', name: 'Keep |' }
+                { path: '/note', name: 'Keep |' }
             ]
         }
     },

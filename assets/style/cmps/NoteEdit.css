@@ -1,0 +1,11 @@
+.note-edit form{
+    display: grid;
+    justify-items: start;
+    gap: 5px;
+
+    padding: 10px;
+    background-color: rgb(250, 212, 142);
+}
+.note-edit form button {
+    justify-self: end;
+}
