@@ -1,9 +1,10 @@
 export default {
+    props: ['unReadCount'],
     template: `
         <section class="mail-folder-list">
             <ul class="clean-list">
                 <li @click="compose">Compose</li>
-                <li @click="filterBy.status = 'inbox'">Inbox</li>
+                <li @click="filterBy.status = 'inbox'">Inbox <span :title="unReadTitle">{{unReadCount}}</span></li>
                 <li @click="filterBy.status = 'sent'">Sent</li>
                 <li @click="filterBy.status = 'trash'">Trash</li>
                 <li @click="filterBy.status = 'draft'">Draft</li>
@@ -21,6 +22,12 @@ export default {
         },
         compose() {
             this.$emit('compose')
+        }
+    },
+    computed: {
+        unReadTitle() {
+            const singelMail = this.unReadCount === 1 ? 'mail' : 'mails'
+            return 'you have ' + this.unReadCount + ' un read ' + singelMail
         }
     },
     watch: {

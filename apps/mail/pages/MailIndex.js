@@ -1,4 +1,5 @@
 import { MailService } from '../services/mail.service.js'
+import { eventBus } from "../../../services/event-bus.service.js"
 
 import MailFilter from '../cmps/MailFilter.js'
 import MailList from '../cmps/MailList.js'
@@ -12,7 +13,7 @@ export default {
             <h1>im mail index</h1>
             <MailFilter @filter="setFilterBy" />
         </header>
-        <MailFolderList class="mail-folder-list" @compose="showCompose" @filter="setFilterBy" />
+        <MailFolderList :unReadCount="totalUnReadMails" class="mail-folder-list" @compose="showCompose" @filter="setFilterBy" />
         <MailList
             :mails="mails"
             @remove="removeMail"
@@ -28,7 +29,7 @@ export default {
         return {
             mails: [],
             filterBy: {
-                status: '',
+                status: 'inbox',
                 subject: '', // no need to support complex text search
                 isRead: null, // (optional property, if missing: show all)
                 isStared: false, // (optional property, if missing: show all)
@@ -39,8 +40,8 @@ export default {
 
     },
     created() {
-        MailService.query()
-            .then(mails => this.mails = mails)
+        eventBus.on('setToRead', this.setToRead)
+        this.filterMails()
     },
     methods: {
         setFilterBy(filterBy) {
@@ -67,12 +68,22 @@ export default {
                 .then(this.filterMails)
         },
         sandMail(mail) {
-            console.log("mail: ", mail);
-
+            MailService.save(mail)
+                .then(this.isCompose = false)
+        },
+        setToRead(mailId) {
+            MailService.get(mailId)
+                .then(mail => {
+                    mail.isRead = true
+                    return mail
+                })
+                .then(MailService.save)
         },
     },
     computed: {
-
+        totalUnReadMails() {
+           return this.mails.filter(mail => !mail.isRead).length
+        },
     },
     components: {
         MailList,

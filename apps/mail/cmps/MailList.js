@@ -5,7 +5,7 @@ export default {
     template: `
         <section class="mail-list">
             <ul class="clean-list">
-                <li v-for="mail in mails" :key="mail.id">
+                <li  v-for="mail in mails" :key="mail.id">
                     <RouterLink :to="{name:'MailDetails', params:{mailId:mail.id}}">
                         <MailPreview :mail="mail"/>
                     </RouterLink> 

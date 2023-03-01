@@ -13,6 +13,10 @@
     transition: 0.2s;
 }
 
+.mail-preview.isRead {
+    background-color: var(--mail1);
+}
+
 .mail-preview:hover {
     border-radius: 2px;
     box-shadow: 0 0 1px black;

@@ -1,4 +1,5 @@
 import { MailService } from "../services/mail.service.js"
+import { eventBus } from "../../../services/event-bus.service.js"
 
 export default {
     template: `
@@ -18,24 +19,30 @@ export default {
     },
     created() {
         this.getMail()
+            .then(this.setRead)
+
     },
     methods: {
         getMail() {
-            MailService.get(this.mailId)
+            return MailService.get(this.mailId)
                 .then(mail => this.currMail = mail)
-        }
+        },
+        setRead() {
+            eventBus.emit('setToRead', this.currMail.id)
+        },
     },
     computed: {
         mailId() {
             return this.$route.params.mailId
         },
-        receivedAt(){
-            return  new Date(this.currMail.sentAt).toLocaleDateString()
+        receivedAt() {
+            return new Date(this.currMail.sentAt).toLocaleDateString()
         }
     },
     watch: {
         mailId() {
             this.getMail()
         }
-    }
+    },
+
 }
