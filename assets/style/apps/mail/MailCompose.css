@@ -1,0 +1,41 @@
+.mail-compose {
+    position: absolute;
+    display: grid;
+    width: 50vw;
+    height: 70vh;
+    bottom: 8px;
+    right: 30px;
+    background-color: var(--clr2);
+    box-shadow: 0px 0px 3px 0px black;
+    border-radius: 5px;
+    padding: 6px;
+}
+
+.mail-compose .compose-header {
+    background-color: var(--mail-1);
+}
+
+.mail-compose form {
+    display: grid;
+    gap: 3px;
+}
+
+.mail-compose form button {
+    background-color: var(--mail3);
+    border-radius: 555px;
+}
+
+.mail-compose form>* {
+    border: 0;
+}
+
+.mail-compose form>*:focus-visible {
+    box-shadow: 0 0 1px black;
+}
+
+
+/* 
+.mail-compose form input,
+.mail-compose form textarea{
+    border: 0;
+} */

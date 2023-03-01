@@ -13,9 +13,13 @@ export default {
             <MailFilter @filter="setFilterBy" />
         </header>
         <MailFolderList class="mail-folder-list" @compose="showCompose" @filter="setFilterBy" />
-        <MailCompose  v-if="isCompose"/>
         <MailList
-        :mails="mails"
+            :mails="mails"
+            @remove="removeMail"
+        />
+        <MailCompose
+            v-if="isCompose"
+            @sand="sandMail"
         />
 
     </section>
@@ -55,8 +59,17 @@ export default {
                 })
         },
         showCompose() {
+            console.log('here');
             this.isCompose = true
-        }
+        },
+        removeMail(mailId) {
+            MailService.remove(mailId)
+                .then(this.filterMails)
+        },
+        sandMail(mail) {
+            console.log("mail: ", mail);
+
+        },
     },
     computed: {
 
@@ -65,5 +78,6 @@ export default {
         MailList,
         MailFilter,
         MailFolderList,
+        MailCompose,
     }
 }

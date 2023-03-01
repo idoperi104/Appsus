@@ -1,17 +1,18 @@
 .mail-index {
+    height: calc(100vh - 140px);
     display: grid;
-    grid-template-columns: 10vw 89vw;
-    grid-template-rows: 5vw 95vw;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: 100px 1fr;
 }
 
 .main-mail-header {
     grid-column: span 2;
     display: grid;
-    grid-template-columns: 10vw 85vw;
+    grid-template-columns: 200px 1fr;
     padding: 20px 0;
     width: 100%;
     height: 100%;
-    background-color: lightblue;
+    background-color: var(--mailBase);
     justify-items: center;
     align-content: center;
     align-items: center;
@@ -21,6 +22,27 @@
     margin: 0;
 }
 
+.mail-list li {
+    position: relative;
+}
+
+.mail-list .mail-btn-remove {
+    position: absolute;
+    min-width: 0;
+    min-height: 0;
+    width: 22px;
+    top: 10px;
+    right: 10px;
+
+    transition: opacity .2s;
+    opacity: 0;
+}
+
+.mail-list li:hover .mail-btn-remove {
+    opacity: 1;
+
+}
+
 .mail-folder-list {
-    background-color: lightblue;
+    background-color: var(--mailBase);
 }

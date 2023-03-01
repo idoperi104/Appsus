@@ -9,4 +9,12 @@
   --secondary-clr1: rgb(88, 201, 58);
   --secondary-clr2: rgb(122, 7, 70);
 
-} 
+  /* Mail colors */
+
+  --mail3: #0b57d0;
+  --mail2: #c2e7ff;
+  --mail1: #d3e3fd;
+  --mailBase: #f6f8fc;
+  --mail-1: #f2f6fc;
+
+}
