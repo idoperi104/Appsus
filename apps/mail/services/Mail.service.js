@@ -20,15 +20,14 @@ export const MailService = {
 function query(filterBy = {}) {
     return storageService.query(MAIL_KEY)
         .then(mails => {
-            // TODO: filterBy params
-            // if (filterBy.txt) {
-            //     const regex = new RegExp(filterBy.txt, 'i')
-            //     mails = mails.filter(car => regex.test(car.vendor))
-            // }
-            // if (filterBy.minSpeed) {
-            //     mails = mails.filter(car => car.maxSpeed >= filterBy.minSpeed)
-            // }
-            return mails
+            const regex = new RegExp(filterBy.subject, 'i')
+            return mails.filter(mail => {
+                return regex.test(mail.subject)
+                && (filterBy.status === 'inbox') ? mail.to === loggedinUser.email : true
+                && (filterBy.status === 'sent') ? mail.from === loggedinUser.email : true
+                && (filterBy.status === 'trash') ? mail.removedAt : true
+                && (filterBy.status === 'darft') ? mail.removedAt : true
+            })
         })
 }
 
