@@ -2,17 +2,17 @@ import { noteService } from "../services/note.service.js"
 import { showUserMsg, showSuccessMsg, showErrorMsg } from '../../../services/event-bus.service.js'
 
 import NoteList from '../cmps/NoteList.js'
-// import NoteEdit from './NoteEdit.js'
+import NoteEdit from '../cmps/NoteEdit.js'
 
 export default {
     template: `
         <h1>im note index and tomer here</h1>
 
         <section class="note-index">
-            <RouterLink to="/note/edit">Add a note</RouterLink>
-            <!-- <NoteEdit
+            <!-- <RouterLink to="/note/edit">Add a note</RouterLink> -->
+            <NoteEdit
                 @saved="setNotes"   
-            /> -->
+            />
 
             <NoteList
                 :notes="notes"
@@ -54,6 +54,6 @@ export default {
     },
     components: {
         NoteList,
-        // NoteEdit,
+        NoteEdit,
     }
 }

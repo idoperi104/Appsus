@@ -22,10 +22,21 @@ export default {
         }
     },
     created() {
-        const { noteId } = this.$route.params
+        const { noteId } = this.$route.query
         if (noteId) {
             noteService.get(noteId)
                 .then(note => this.note = note)
+        }
+    },
+    computed: {
+        noteId() {
+            return this.$route.query.noteId
+        }
+    },
+    watch: {
+        noteId() {
+            console.log('noteId Changed!')
+            this.loadNote()
         }
     },
     methods: {
@@ -34,12 +45,17 @@ export default {
                 .then(savedNote => {
                     this.note = noteService.getEmptyNote()
                     this.$emit('saved', savedNote)
-                    this.$router.push('/note')
+                    this.$router.push({query:{noteId:''}})
                     showSuccessMsg('note saved')
                 })
                 .catch(err => {
                     showErrorMsg('note save canceled')
                 })
+        },
+        loadNote() {
+            if(!this.noteId) return
+            noteService.get(this.noteId)
+                .then(note => this.note = note)
         }
     },
 
