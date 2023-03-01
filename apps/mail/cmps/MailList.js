@@ -7,7 +7,8 @@ export default {
             <ul class="clean-list">
                 <li v-for="mail in mails" :key="mail.id">
                     <MailPreview :mail="mail"/>
-                   <pre>{{mail}}</pre> 
+                    <RouterLink :to="{name:'MailDetails', params:{mailId:mail.id}}">details</RouterLink> 
+                   <!-- <pre>{{mail}}</pre>  -->
                     <!-- <button @click="remove(car.id)">x</button> -->
                 </li>
             </ul>

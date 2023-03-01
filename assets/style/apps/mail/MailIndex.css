@@ -1,13 +1,13 @@
 .mail-index {
     display: grid;
-    grid-template-columns: 10vw 90vw;
+    grid-template-columns: 10vw 89vw;
     grid-template-rows: 5vw 95vw;
 }
 
 .main-mail-header {
     grid-column: span 2;
     display: grid;
-    grid-template-columns: 10vw 90vw;
+    grid-template-columns: 10vw 85vw;
     padding: 20px 0;
     width: 100%;
     height: 100%;

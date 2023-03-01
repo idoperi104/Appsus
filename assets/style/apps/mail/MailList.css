@@ -3,11 +3,20 @@
 }
 
 .mail-preview {
+    cursor: pointer;
     background-color: var(--gray1);
     padding: 8px;
-    border-radius: 7px;
+    border-top: 1px solid var(--clr4);
+    /* margin-bottom: 10px; */
+    border-bottom: 1px solid var(--clr4);
+    opacity: 0.8;
+    transition: 0.2s;
+}
+
+.mail-preview:hover {
+    border-radius: 2px;
     box-shadow: 0 0 1px black;
-    margin-bottom: 10px;
+    opacity: 1;
 }
 
 .mail-preview ul {
@@ -18,4 +27,6 @@
 
 .mail-preview h2 {
     font-size: 1.3rem;
+    /* line-height: 1.3rem; */
+    margin: 0;
 }

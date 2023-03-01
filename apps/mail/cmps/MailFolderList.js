@@ -2,6 +2,7 @@ export default {
     template: `
         <section class="mail-folder-list">
             <ul class="clean-list">
+                <li @click="compose">Compose</li>
                 <li @click="filterBy.status = 'inbox'">Inbox</li>
                 <li @click="filterBy.status = 'sent'">Sent</li>
                 <li @click="filterBy.status = 'trash'">Trash</li>
@@ -17,6 +18,9 @@ export default {
     methods: {
         filter() {
             this.$emit('filter', this.filterBy)
+        },
+        compose() {
+            this.$emit('compose')
         }
     },
     watch: {

@@ -14,7 +14,7 @@ export const MailService = {
     get,
     remove,
     save,
-    // getEmptyMail,
+    getEmptyMail,
 }
 
 function query(filterBy = {}) {
@@ -74,6 +74,14 @@ function _createMail(subject, body) {
 
 }
 
-// function getEmptyMail(vendor = '', maxSpeed = 0) {
-//     return { id: '', vendor, maxSpeed }
-// }
+function getEmptyMail() {
+    return {
+        subject: '',
+        body: '',
+        isRead: false,
+        sentAt: null,
+        removedAt: null,
+        from: '',
+        to: ''
+    }
+}

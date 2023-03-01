@@ -3,6 +3,7 @@ import { MailService } from '../services/mail.service.js'
 import MailFilter from '../cmps/MailFilter.js'
 import MailList from '../cmps/MailList.js'
 import MailFolderList from '../cmps/MailFolderList.js'
+import MailCompose from '../cmps/MailCompose.js'
 
 export default {
     template: `
@@ -11,8 +12,9 @@ export default {
             <h1>im mail index</h1>
             <MailFilter @filter="setFilterBy" />
         </header>
-        <MailFolderList class="mail-folder-list" @filter="setFilterBy" />
-        <MailList 
+        <MailFolderList class="mail-folder-list" @compose="showCompose" @filter="setFilterBy" />
+        <MailCompose  v-if="isCompose"/>
+        <MailList
         :mails="mails"
         />
 
@@ -28,6 +30,7 @@ export default {
                 isStared: false, // (optional property, if missing: show all)
                 labels: [] // has any of the labels
             },
+            isCompose: false,
         }
 
     },
@@ -50,6 +53,9 @@ export default {
                 .then(mails => {
                     this.mails = mails
                 })
+        },
+        showCompose() {
+            this.isCompose = true
         }
     },
     computed: {
