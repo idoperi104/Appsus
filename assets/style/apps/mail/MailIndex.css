@@ -83,3 +83,20 @@
 .mail-folder-list {
     background-color: var(--mailBase);
 }
+
+.mail-filter input{
+    width: 90%;
+    min-width: 300px;
+    max-width: 500px;
+    display: block;
+    margin: 1rem auto;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 0.4rem;
+    font-size: 16px;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    transition: all 0.2s ease-in-out;
+    background-color: #eee;
+}
