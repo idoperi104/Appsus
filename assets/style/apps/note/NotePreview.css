@@ -1,5 +1,7 @@
 .note-preview {
     min-height: 100px;
-    /* min-width: 200px; */
-    /* flex-grow: 1; */
+}
+
+.note-preview > p{
+    margin: 0;
 }

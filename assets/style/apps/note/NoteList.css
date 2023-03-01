@@ -9,5 +9,11 @@
 }
 .note-list ul li{
     padding: 10px;
-    background-color: lightcyan;
+    /* background-color: lightcyan; */
+}
+
+.note-list li{
+    border: 1px solid black;
+    border-radius: .5rem;
+    /* background-color: lightcyan; */
 }
