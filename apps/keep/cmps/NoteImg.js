@@ -3,7 +3,7 @@ export default {
     template: `
         <article :style="styleObject" class="note-preview">
             <h2>{{note.info.title}}</h2>
-            <p>{{note.info.txt}}</p>
+            <img :src="note.info.url" alt="" />
         </article>
     `,
     computed: {

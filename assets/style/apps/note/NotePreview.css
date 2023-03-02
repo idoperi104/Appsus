@@ -3,5 +3,9 @@
 }
 
 .note-preview > p{
-    margin: 0;
+    margin: .5em;
+}
+.note-preview > h2{
+    margin-inline: .5em;
+    margin-block: 0;
 }

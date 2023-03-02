@@ -112,7 +112,8 @@ function _createNotes() {
                 style: {
                     backgroundColor: '#fff'
                 }, info: {
-                    txt: 'im img!'
+                    title: 'im img!',
+                    url: 'https://cdn.pixabay.com/photo/2016/11/29/04/19/ocean-1867285__340.jpg'
                 }
             },
             {
@@ -123,7 +124,8 @@ function _createNotes() {
                 style: {
                     backgroundColor: '#fff'
                 }, info: {
-                    txt: 'im img!'
+                    title: 'im img!',
+                    url: 'https://thumbs.dreamstime.com/b/beach-sea-18378306.jpg'
                 }
             },
             {

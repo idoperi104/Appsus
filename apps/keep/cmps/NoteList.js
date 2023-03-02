@@ -5,23 +5,16 @@ import NoteVideo from './NoteVideo.js'
 import NoteTodos from './NoteTodos.js'
 
 export default {
-    props: ['notes', 'type'],
+    props: ['notes'],
     template: `
         <section class="note-list">
-            {{type}}
             <ul>
                 <li v-for="note in notes" :style=getStyle(note) :key="note.id">
-                    <!-- <NotePreview :note="note"/> -->
 
                     <Component 
-                        :is="type"
+                        :is="note.type"
                         :note="note" 
                     />
-
-
-                    <!-- <RouterLink :to="'/car/'+car.id">Details</RouterLink> | -->
-                    <!-- <RouterLink :to="'/note/edit/'+note.id">Edit</RouterLink> | -->
-
 
                     <button hidden @click="showDetails(note.id)">Details</button>
                     <button @click="edit(note.id)">edit</button>

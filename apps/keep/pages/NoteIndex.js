@@ -34,7 +34,6 @@ export default {
     
                 <NoteList
                     :notes="getPinned"
-                    :type="filterBy.type"
                     v-if="notes && getPinned && filterBy"
                     @remove="removeNote"
                     @isOnEdit="setIsOnEdit"
@@ -43,7 +42,6 @@ export default {
                 />
                 <NoteList
                     :notes="getUnPinned"
-                    :type="filterBy.type"
                     v-if="notes && filterBy"
                     @remove="removeNote"
                     @isOnEdit="setIsOnEdit"
@@ -54,12 +52,13 @@ export default {
         </section>
     `,
     created() {
-        this.filteredNotes()
+        this.queryNotes()
     },
     data() {
         return {
             notes: null,
-            filterBy: {},
+            filtered: null,
+            filterBy: {txt:'', type:''},
             isOnEdit: false,
         }
     },
@@ -77,19 +76,13 @@ export default {
         },
         setFilterBy(filterBy) {
             this.filterBy = filterBy
-            this.filteredNotes()
         },
         setNotes() {
-            this.filterBy = {}
-            this.filteredNotes()
+            this.queryNotes()
         },
         setIsOnEdit(isOn) {
             console.log(isOn);
             this.isOnEdit = isOn
-        },
-        filteredNotes() {
-            noteService.query(this.filterBy)
-                .then(notes => this.notes = notes)
         },
         togglePin(note) {
             note.isPinned = !note.isPinned
@@ -109,10 +102,27 @@ export default {
     },
     computed: {
         getPinned() {
-            return this.notes.filter(note => note.isPinned)
+            return this.filtered.filter(note => note.isPinned)
         },
         getUnPinned() {
-            return this.notes.filter(note => !note.isPinned)
+            return this.filtered.filter(note => !note.isPinned)
+        },
+        filteredNotes() {
+            if(!this.notes) return
+            console.log(this.notes.length);
+            console.log(this.filterBy);
+            
+            const regexType = new RegExp(this.filterBy.type, 'i')
+            const regex = new RegExp(this.filterBy.txt, 'i')
+            this.filtered = this.notes.filter(note => {
+                return (regex.test(note.info.txt) || regex.test(note.info.title))
+                && regexType.test(note.type)
+            })
+        },
+    },
+    watch: {
+        filteredNotes(){
+            console.log('filteredNotes watched');
         }
     },
     components: {
