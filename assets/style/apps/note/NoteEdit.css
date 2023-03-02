@@ -53,6 +53,14 @@
     right: 50%;
 }
 
+.note-edit form>img {
+    max-height: 200px;
+    max-width: none;
+    max-width: fit-content;
+    margin-inline: auto;
+}
+    
+
 .note-edit form>input {
     width: 100%;
     display: block;

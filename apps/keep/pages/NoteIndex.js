@@ -30,7 +30,7 @@ export default {
                     @isOnEdit="setIsOnEdit" 
                 />
 
-                <button class="btn-add-note fa-solid fa-plus" @click="isOnEdit=true"></button>
+                <!-- <button class="btn-add-note fa-solid fa-plus" @click="isOnEdit=true"></button> -->
 
                 <NoteEdit
                     @saved="setNotes"
