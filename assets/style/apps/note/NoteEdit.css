@@ -59,11 +59,11 @@
     border-radius: .4rem;
     font-size: 16px;
     transition: all 0.2s ease-in-out;
-    background-color: var(--clr2);
+    background-color: var(--clr1);
 }
 
 .note-edit form>input:focus {
-    background-color: white;
+    /* background-color: white; */
     box-shadow: 0px 1px 6px -1px;
     border: none;
 }

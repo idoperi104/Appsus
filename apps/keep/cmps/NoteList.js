@@ -14,15 +14,14 @@ export default {
                     <Component 
                         :is="note.type"
                         :note="note" 
+                        @click.prevent="edit(note.id)"
                     />
 
-                    <button hidden @click="showDetails(note.id)">Details</button>
-                    <button @click="edit(note.id)">edit</button>
-                    <button @click="remove(note.id)">x</button>
-                    <a @click="togglePin(note)" 
+                    <button class="fa-regular fa-trash-can" @click="remove(note.id)"></button>
+                    <button @click="togglePin(note)" 
                             :style=btnPinnedStyle(note)
-                            class="btn-pin fa-solid fa-thumbtack"></a>
-                    <button @click="duplicate(note)">dup</button>
+                            class="btn-pin fa-solid fa-thumbtack"></button>
+                    <button @click="duplicate(note)" class="fa-regular fa-clone"></button>
 
                 </li>
             </ul>
@@ -53,7 +52,7 @@ export default {
         getStyle(note) {
             return {
                 backgroundColor: note.style.backgroundColor,
-                borderColor: (note.isPinned) ? 'red' : 'black'
+                border: 'none'
             }
         },
         btnPinnedStyle(note){

@@ -31,6 +31,8 @@ export default {
                     v-if="isOnEdit"  
                     @isOnEdit="setIsOnEdit" 
                 />
+
+                <h3 class="pin-title" v-if="notes && filterBy && isPinnedExist">pinned</h3>
     
                 <NoteList
                     :notes="getPinned"
@@ -40,6 +42,9 @@ export default {
                     @pin="togglePin" 
                     @duplicate="duplicateNote"
                 />
+
+                <h3 class="pin-title" v-if="notes && filterBy && isUnPinnedExist">others</h3>
+
                 <NoteList
                     :notes="getUnPinned"
                     v-if="notes && filterBy"
@@ -105,6 +110,12 @@ export default {
         },
         getUnPinned() {
             return this.filtered.filter(note => !note.isPinned)
+        },
+        isPinnedExist(){
+            return this.notes.some(note => note.isPinned)
+        },
+        isUnPinnedExist(){
+            return this.notes.some(note => !note.isPinned)
         },
         filteredNotes() {
             if (!this.notes) return

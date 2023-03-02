@@ -25,15 +25,17 @@
 
 .btn-pin{
     position: absolute;
-    top: .5em;
-    right: .5em;
-    background-color: none;
+    top: 0em;
+    right: 0em;
 }
 
-.note-list li .btn-pin{
+.note-list li > button{
     opacity: 0;
+    background-color: rgba(255, 0, 0, 0);
+    border: none;
     transition: opacity 0.2s;
+    padding: 0;
 }
-.note-list li:hover .btn-pin{
+.note-list li:hover > button{
     opacity: 1;
 }

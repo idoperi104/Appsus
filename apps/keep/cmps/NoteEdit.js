@@ -18,14 +18,14 @@ export default {
                     <label for="note-edit-todo" class="fa-solid fa-list-ul"></label>
                 </div>
 
-                <label for="title">title:</label>
-                <input name="title" type="text" v-model="note.info.title" placeholder="write note">
+                <!-- <label for="title">title:</label> -->
+                <input name="title" type="text" v-model="note.info.title" placeholder="title">
                 
-                <label v-if="note.type === 'NoteTxt'" for="txt">txt:</label>
-                <input v-if="note.type === 'NoteTxt'" name="txt" type="text" v-model="note.info.txt" placeholder="write note">
+                <!-- <label v-if="note.type === 'NoteTxt'" for="txt">txt:</label> -->
+                <input ref="focusInput" v-if="note.type === 'NoteTxt'" name="txt" type="text" v-model="note.info.txt" placeholder="take a note...">
                 
-                <label v-if="note.type === 'NoteImg' || note.type === 'NoteVideo'" for="url">url:</label>
-                <input v-if="note.type === 'NoteImg' || note.type === 'NoteVideo'" name="url" type="text" v-model="note.info.url" placeholder="enter url">
+                <!-- <label v-if="note.type === 'NoteImg' || note.type === 'NoteVideo'" for="url">url:</label> -->
+                <input v-if="note.type === 'NoteImg' || note.type === 'NoteVideo'" name="url" type="text" v-model="note.info.url" placeholder="enter url...">
                 
                 <label for="bg-color">bg-color:</label>
                 <input name="bg-color" type="color" v-model="note.style.backgroundColor" placeholder="write note">
@@ -83,10 +83,13 @@ export default {
             this.$router.push({ query: { noteId: '' } })
             this.$emit('isOnEdit', false)
         },
-        setType(){
+        setType() {
             console.log(this.type);
             this.note.type = this.type
         }
     },
+    mounted() {
+        this.$refs.focusInput.focus()
+    }
 
 }
