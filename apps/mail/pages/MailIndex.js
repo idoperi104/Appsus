@@ -14,7 +14,6 @@ export default {
                 <div class="mail-logo-img"></div>
                 <h1>G'AMAL</h1>
             </article>
-           
             <MailFilter @filter="setFilterBy" />
         </header>
         <MailFolderList :unReadCount="totalUnReadMails" class="mail-folder-list" @compose="showCompose" @filter="setFilterBy" />
@@ -25,6 +24,7 @@ export default {
         <MailCompose
             v-if="isCompose"
             @sand="sandMail"
+            @close="isCompose = false"
         />
 
     </section>

@@ -13,6 +13,8 @@
 
 .mail-compose .compose-header {
     background-color: var(--mail-1);
+    display: flex;
+    justify-content: space-between;
 }
 
 .mail-compose form {
@@ -20,10 +22,22 @@
     gap: 3px;
 }
 
-.mail-compose form button {
+.mail-compose form .btn-sand {
     background-color: var(--mail3);
     border-radius: 555px;
     width: 95px;
+}
+
+.mail-compose form .btn-close {
+    background-color: var(--mail-1);
+    border-radius: 555px;
+    min-height: 0;
+    min-width: 10px;
+    border: 0;
+}
+
+.mail-compose form h2 {
+   margin: 0;
 }
 
 .mail-compose form>* {
