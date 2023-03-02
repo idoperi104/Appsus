@@ -1,9 +1,18 @@
 .mail-index {
     height: var(--appHeight);
     display: grid;
-    grid-template-columns: minmax(200px, auto) 1fr;
-    grid-template-rows: minmax(80px, auto) 1fr;
 }
+
+.mail-index.open {
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: minmax(60px, auto) 1fr;
+}
+
+.mail-index.close {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: minmax(60px, auto) 1fr;
+}
+
 
 .mail-list li {
     position: relative;
@@ -51,4 +60,11 @@
 
 .mail-folder-list {
     background-color: var(--mailBase);
+}
+
+@media(max-width: 1100px) {
+    .mail-list li .mail-btn-remove,
+    .mail-list li .mail-btn-unRead {
+        top: 7px;
+    }
 }

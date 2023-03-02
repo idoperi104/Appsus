@@ -8,17 +8,17 @@ import MailCompose from '../cmps/MailCompose.js'
 
 export default {
     template: `
-    <section class="mail-index">
+    <section :class="(isClose) ? 'close' : 'open'" class="mail-index">
         <header class="main-mail-header">
             <article class="mail-logo">
-                <i class="fa-solid fa-bars"></i>
+                <i @click="toggleMenu" class="fa-solid fa-bars"></i>
                 <div class="mail-logo-img"></div>
                 <h1>G'AMAL</h1>
             </article>
             <MailFilter @filter="setFilterBy" />
             <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"></path></svg> -->
         </header>
-        <MailFolderList :unReadCount="totalUnReadMails" class="mail-folder-list" @compose="showCompose" @filter="setFilterBy" />
+        <MailFolderList :isClose="isClose" :unReadCount="totalUnReadMails" class="mail-folder-list" @compose="showCompose" @filter="setFilterBy" />
         <MailList
             :mails="filteredMails"
             @remove="removeMail"
@@ -37,13 +37,14 @@ export default {
             mails: [],
             filterBy: {
                 status: 'inbox',
-                subject: '', 
+                subject: '',
                 isRead: 'all',
                 isStar: 'all',
-                isStared: false, 
-                labels: [] 
+                isStared: false,
+                labels: []
             },
             isCompose: false,
+            isClose: true
         }
 
     },
@@ -55,7 +56,7 @@ export default {
     },
     methods: {
         setFilterBy(filterBy) {
-            const { status, subject, isRead, isStar ,isStared, labels } = filterBy
+            const { status, subject, isRead, isStar, isStared, labels } = filterBy
             this.filterBy.status = status || this.filterBy.status
             this.filterBy.subject = subject || this.filterBy.subject
             this.filterBy.isRead = isRead || this.filterBy.isRead
@@ -140,13 +141,16 @@ export default {
                     showErrorMsg('Staring failed')
                 })
         },
+        toggleMenu() {
+            this.isClose = !this.isClose
+        }
     },
     computed: {
         totalUnReadMails() {
             return this.mails.filter(mail => !mail.isRead).length
         },
         filteredMails() {
-            if (!this.filterBy.subject) return this.mails
+            if (this.filterBy.subject === 'all') return this.mails
             const regex = new RegExp(this.filterBy.subject, 'i')
             return this.mails.filter(mail => {
                 return regex.test(mail.subject)

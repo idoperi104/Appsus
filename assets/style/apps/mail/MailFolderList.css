@@ -2,6 +2,10 @@
     text-align: center;
 }
 
+.mail-folder-list ul {
+    transition: 1s;
+}
+
 .mail-folder-list ul li {
     display: grid;
     grid-template-columns: 20% 62% 18%;
@@ -12,6 +16,7 @@
     justify-items: start;
     align-items: center;
     padding-block: 7px;
+    font-size: 1.1rem;
 }
 
 .mail-folder-list ul li:hover:not(:first-child) {
@@ -31,7 +36,7 @@
 }
 
 .mail-folder-list li i {
-    margin-inline-end: 10px;
+    margin-inline-end: 20px;
 }
 
 .mail-folder-list li:first-child {
