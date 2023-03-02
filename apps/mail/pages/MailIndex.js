@@ -1,4 +1,4 @@
-import { MailService } from '../../mail/services/mail.service.js'
+import { mailService } from '../../mail/services/mail.service.js'
 import { eventBus, showSuccessMsg, showErrorMsg } from "../../../services/event-bus.service.js"
 
 import MailFilter from '../cmps/MailFilter.js'
@@ -66,7 +66,7 @@ export default {
             this.filterMails()
         },
         filterMails() {
-            MailService.query(this.filterBy)
+            mailService.query(this.filterBy)
                 .then(mails => {
                     this.mails = mails
                     console.log("this.mails: ", mails);
@@ -79,10 +79,10 @@ export default {
         },
         removeMail(mailId) {
             if (this.filterBy.status !== 'trash') {
-                MailService.get(mailId)
+                mailService.get(mailId)
                     .then(mail => {
                         mail.removedAt = Date.now()
-                        return MailService.save(mail)
+                        return mailService.save(mail)
                     })
                     .then(this.filterMails)
                     .then(() => this.filterBy.status = 'trash')
@@ -93,7 +93,7 @@ export default {
                         showErrorMsg('Mail remove failed')
                     })
             } else {
-                MailService.remove(mailId)
+                mailService.remove(mailId)
                     .then(this.filterMails)
                     .then(() => {
                         showSuccessMsg('Mail Deleted for good')
@@ -107,12 +107,12 @@ export default {
         },
         setUnRead(mail) {
             mail.isRead = !mail.isRead
-            MailService.save(mail)
+            mailService.save(mail)
                 .then(mail => console.log(mail))
 
         },
         sandMail(mail) {
-            MailService.save(mail)
+            mailService.save(mail)
                 .then(() => {
                     this.isCompose = false
                     this.filterMails()
@@ -125,15 +125,15 @@ export default {
                 })
         },
         setToRead(mailId) {
-            MailService.get(mailId)
+            mailService.get(mailId)
                 .then(mail => {
                     mail.isRead = true
                     return mail
                 })
-                .then(MailService.save)
+                .then(mailService.save)
         },
         setIsStar(mail) {
-            MailService.save(mail)
+            mailService.save(mail)
                 .then((mail) => {
                     showSuccessMsg(mail.isStar ? 'Mail stared' : 'Mail UnStared')
                 })

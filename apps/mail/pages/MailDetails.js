@@ -1,4 +1,4 @@
-import { MailService } from "../services/mail.service.js"
+import { mailService } from "../services/mail.service.js"
 import { eventBus } from "../../../services/event-bus.service.js"
 
 export default {
@@ -32,7 +32,7 @@ export default {
     },
     methods: {
         getMail() {
-            return MailService.get(this.mailId)
+            return mailService.get(this.mailId)
                 .then(mail => this.currMail = mail)
         },
         setRead() {

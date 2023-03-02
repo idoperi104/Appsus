@@ -1,4 +1,4 @@
-import { MailService } from '../services/mail.service.js'
+import { mailService } from '../services/mail.service.js'
 
 export default {
     template: `
@@ -9,10 +9,10 @@ export default {
                     <button class="btn-close" @click="close">X</button>
                 </header>
                
-             <input required type="text" v-model="mail.to" placeholder="to: (Email address)" />
-              <input required type="text" v-model="mail.subject" placeholder="subject" />
+             <input required type="text" v-model="mail.to" placeholder="To: (Email address)" />
+              <input required type="text" v-model="mail.subject" placeholder="Subject" />
               <textarea required v-model="mail.body" cols="50" rows="18"></textarea>
-              <button class="btn-sand">Sand</button>
+              <button class="btn-sand">Send</button>
             </form>
         </section>
     `,
@@ -22,7 +22,7 @@ export default {
         }
     },
     created() {
-        this.mail = MailService.getEmptyMail()
+        this.mail = mailService.getEmptyMail()
 
     },
     methods: {
@@ -35,6 +35,6 @@ export default {
         }
     },
     components: {
-        MailService,
+        mailService,
     }
 }

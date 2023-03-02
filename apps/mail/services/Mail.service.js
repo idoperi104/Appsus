@@ -9,7 +9,7 @@ const loggedinUser = {
 
 _createMails()
 
-export const MailService = {
+export const mailService = {
     query,
     get,
     remove,
