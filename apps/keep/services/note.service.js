@@ -51,7 +51,9 @@ function getEmptyNote() {
             backgroundColor: '#eeeeee'
         },
         info: {
-            txt: ''
+            txt: '',
+            title: '',
+            url: '',
         }
     }
 }
@@ -129,6 +131,18 @@ function _createNotes() {
                 }
             },
             {
+                id: 'nf9534',
+                createdAt: 1112222,
+                type: 'NoteImg',
+                isPinned: false,
+                style: {
+                    backgroundColor: '#fff'
+                }, info: {
+                    title: 'im img!',
+                    url: 'https://www.galvanizeaction.org/wp-content/uploads/2022/06/Wow-gif.gif'
+                }
+            },
+            {
                 id: 'n234',
                 createdAt: 1112222,
                 type: 'NoteVideo',
@@ -136,7 +150,8 @@ function _createNotes() {
                 style: {
                     backgroundColor: '#eee'
                 }, info: {
-                    txt: 'im video!'
+                    title: 'im video!',
+                    url: 'https://www.youtube.com/watch?v=u044iM9xsWU'
                 }
             },
             {
@@ -159,7 +174,8 @@ function _createNotes() {
                 style: {
                     backgroundColor: '#eee'
                 }, info: {
-                    txt: 'im video!'
+                    title: 'im video!',
+                    url: 'https://www.youtube.com/watch?v=TwsLizKaCxs'
                 }
             },
         ]

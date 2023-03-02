@@ -14,10 +14,26 @@
     border: 1px solid black;
     border-radius: .5rem;
     break-inside: avoid-column;
+    position: relative;
     /* background-color: lightcyan; */
 }
 
 .note-list li:not(:first-of-type){
     margin-block-start: 1rem;
     /* background-color: lightcyan; */
+}
+
+.btn-pin{
+    position: absolute;
+    top: .5em;
+    right: .5em;
+    background-color: none;
+}
+
+.note-list li .btn-pin{
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.note-list li:hover .btn-pin{
+    opacity: 1;
 }

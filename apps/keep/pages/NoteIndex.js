@@ -24,7 +24,7 @@ export default {
 
             <section class="note-main">
 
-                <button class="btn-add-note" @click="isOnEdit=true">add note</button>
+                <button class="btn-add-note fa-solid fa-plus" @click="isOnEdit=true"></button>
 
                 <NoteEdit
                     @saved="setNotes"
@@ -58,7 +58,7 @@ export default {
         return {
             notes: null,
             filtered: null,
-            filterBy: {txt:'', type:''},
+            filterBy: { txt: '', type: '' },
             isOnEdit: false,
         }
     },
@@ -81,7 +81,6 @@ export default {
             this.queryNotes()
         },
         setIsOnEdit(isOn) {
-            console.log(isOn);
             this.isOnEdit = isOn
         },
         togglePin(note) {
@@ -95,7 +94,7 @@ export default {
             noteService.save(dup)
                 .then((note) => this.notes.push(note))
         },
-        queryNotes(){
+        queryNotes() {
             noteService.query()
                 .then(notes => this.notes = notes)
         }
@@ -108,20 +107,17 @@ export default {
             return this.filtered.filter(note => !note.isPinned)
         },
         filteredNotes() {
-            if(!this.notes) return
-            console.log(this.notes.length);
-            console.log(this.filterBy);
-            
+            if (!this.notes) return
             const regexType = new RegExp(this.filterBy.type, 'i')
             const regex = new RegExp(this.filterBy.txt, 'i')
             this.filtered = this.notes.filter(note => {
                 return (regex.test(note.info.txt) || regex.test(note.info.title))
-                && regexType.test(note.type)
+                    && regexType.test(note.type)
             })
         },
     },
     watch: {
-        filteredNotes(){
+        filteredNotes() {
             console.log('filteredNotes watched');
         }
     },

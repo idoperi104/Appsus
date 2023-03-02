@@ -19,15 +19,18 @@ export default {
                     <button hidden @click="showDetails(note.id)">Details</button>
                     <button @click="edit(note.id)">edit</button>
                     <button @click="remove(note.id)">x</button>
-                    <button @click="togglePin(note)">pin</button>
+                    <a @click="togglePin(note)" 
+                            :style=btnPinnedStyle(note)
+                            class="btn-pin fa-solid fa-thumbtack"></a>
                     <button @click="duplicate(note)">dup</button>
+
                 </li>
             </ul>
         </section>
     `,
-    data(){
-        return{
-            
+    data() {
+        return {
+
         }
     },
     methods: {
@@ -36,7 +39,7 @@ export default {
         },
         edit(noteId) {
             this.$emit('isOnEdit', true)
-            this.$router.push({query:{noteId:noteId}})
+            this.$router.push({ query: { noteId: noteId } })
         },
         togglePin(note) {
             this.$emit('pin', note)
@@ -47,10 +50,15 @@ export default {
         showDetails(noteId) {
             this.$emit('show-details', noteId)
         },
-        getStyle(note){
+        getStyle(note) {
             return {
-                backgroundColor : note.style.backgroundColor,
-                borderColor: (note.isPinned)? 'red' : 'black'
+                backgroundColor: note.style.backgroundColor,
+                borderColor: (note.isPinned) ? 'red' : 'black'
+            }
+        },
+        btnPinnedStyle(note){
+            return {
+                color: (note.isPinned) ? 'var(--clr5)' : 'var(--clr3)'
             }
         }
     },

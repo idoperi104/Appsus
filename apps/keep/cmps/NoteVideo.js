@@ -1,14 +1,26 @@
 export default {
     props: ['note'],
     template: `
-        <article :style="styleObject" class="note-preview">
+        <article ref="notePreview" :style="styleObject" class="note-preview">
             <h2>{{note.info.title}}</h2>
-            <p>{{note.info.txt}}</p>
+            <iframe 
+                :src="getVidUrl"
+                width = "100%">
+            </iframe>
         </article>
     `,
+    data(){
+        return {
+            width: 0,
+        }
+    },
     computed: {
         styleObject() {
             return this.note.style
+        },
+        getVidUrl() {
+            var url = this.note.info.url.split('=')[1]
+            return `https://www.youtube.com/embed/${url}`
         }
-    }
+    },
 }
