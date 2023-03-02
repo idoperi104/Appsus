@@ -22,7 +22,7 @@ export default {
             </section>
 
 
-            <section class="note-main"></section>
+            <section class="note-main">
 
                 <button class="btn-add-note fa-solid fa-plus" @click="isOnEdit=true"></button>
 
