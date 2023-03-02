@@ -10,14 +10,15 @@
     grid-column: 2;
 }
 
-.mail-details header {
+.mail-details header h1 {
     font-size: 2.5rem;
+    margin: 1rem 0 2rem;
 }
 
 .mail-details .back-to-mail {
     grid-column: 1;
     display: flex;
-    padding: 0 20px 26px 0;
+    padding: 0 20px 9px 0;
     align-items: center;
     justify-content: flex-end;
     font-size: 1.5rem;
@@ -25,23 +26,32 @@
 }
 
 .mail-details .back-to-mail[data-title]::after {
-    bottom: 29px;
+    bottom: 23px;
 }
 
 .mail-details article {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
     grid-row: 2;
     font-size: 1.5rem;
+    justify-items: end;
 }
 
-.mail-details article h4{
+.mail-details article h4 {
     margin: 0;
+    justify-self: start;
+}
+
+.currMail-btn-remove {
+    border: 0;
+    background: var(--mailBase);
 }
 
 .mail-details main {
-    margin-top: 20px;
+    margin-top: 8px;
+    padding: 15px;
+
     grid-row: 3;
     font-size: 1.1rem;
     background-color: var(--clr2);

@@ -36,7 +36,9 @@ export default {
     methods: {
         filter() {
             console.log('filterBy changed', this.filterBy)
+            if (this.filterBy.subject === '') this.filterBy.subject = 'all'
             this.$emit('filter', this.filterBy)
+            if (this.filterBy.subject === 'all') this.filterBy.subject = ''
         },
         toggleOptions() {
             this.showOptions = !this.showOptions

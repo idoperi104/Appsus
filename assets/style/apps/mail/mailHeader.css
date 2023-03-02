@@ -18,6 +18,7 @@
 
 .mail-logo i {
    padding-inline-start: var(--mailPageStart);
+   cursor: pointer;
 }
 
 .mail-logo i::before {

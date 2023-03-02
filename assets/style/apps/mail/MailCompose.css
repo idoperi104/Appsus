@@ -22,6 +22,11 @@
     gap: 3px;
 }
 
+
+.mail-compose form>:focus-visible {
+    outline: none;
+}
+
 .mail-compose form .btn-sand {
     background-color: var(--mail3);
     border-radius: 555px;
