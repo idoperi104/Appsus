@@ -14,11 +14,11 @@ export default {
                        <button :class="{ 'filter-active': filterBy.isRead === 'unRead' }" @click="filterBy.isRead = 'unRead'">unRead</button>
                        <button :class="{ 'filter-active': filterBy.isRead === 'all' }" @click="filterBy.isRead = 'all'">all</button>
                     </p>
-                    <p>
+                    <!-- <p>
                        <button :class="{ 'filter-active': filterBy.isStar === 'star' }" @click="filterBy.isStar = 'star'">star</button>
                        <button :class="{ 'filter-active': filterBy.isStar === 'unStar' }" @click="filterBy.isStar = 'unStar'">unStar</button>
                        <button :class="{ 'filter-active': filterBy.isStar === 'all' }" @click="filterBy.isStar = 'all'">all</button>
-                    </p>
+                    </p> -->
                 </article>
         </section>
     `,

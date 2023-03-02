@@ -3,7 +3,7 @@
 }
 
 .mail-folder-list ul {
-    transition: 1s;
+    /* transition: 1s; */
 }
 
 .mail-folder-list ul li {
@@ -17,6 +17,10 @@
     align-items: center;
     padding-block: 7px;
     font-size: 1.1rem;
+}
+
+.mail-folder-list li i.fa-star::before{
+    color: var(--clr4);
 }
 
 .mail-folder-list ul li:hover:not(:first-child) {

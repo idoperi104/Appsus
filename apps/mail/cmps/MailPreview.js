@@ -5,7 +5,7 @@ export default {
     props: ['mail'],
     template: `
         <article :class="mail.isRead ? 'isRead': ''" class="mail-preview">
-            <i @click.prevent="setStar" :class="(isStar === 'star') ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
+            <i @click.prevent="setStar" :class="(isStar) ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
             <h2 :data-title="mail.subject">{{ subjectCut }}</h2>
             <h3>{{ bodyCut }}</h3>
             <h3>{{ daysAgo }}</h3>
@@ -19,7 +19,7 @@ export default {
     methods:{
         setStar() {
             this.mail.isStar = 
-            this.isStar = this.isStar === 'unStar' ? 'star' : 'unStar'
+            this.isStar = !this.isStar
             eventBus.emit('setIsStar', this.mail)
         },
     },
