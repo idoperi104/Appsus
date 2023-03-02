@@ -2,6 +2,8 @@
 
 .note-filter {
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .note-filter > input {
@@ -13,12 +15,14 @@
     font-size: 1.2rem;
     margin-bottom: 2rem;
     /* scale: 1.1; */
-    transition: all 0.1s;
+    transition: all 0.2s;
 }
 .note-filter > label:hover{
     scale: 1.2;
+    cursor: pointer;
 }
 
 .note-filter > input:checked + label{
     scale: 1.5;
+    color: black;
 }

@@ -1,12 +1,24 @@
 import NotePreview from './NotePreview.js'
+import NoteImg from './NoteImg.js'
+import NoteTxt from './NoteTxt.js'
+import NoteVideo from './NoteVideo.js'
+import NoteTodos from './NoteTodos.js'
 
 export default {
-    props: ['notes'],
+    props: ['notes', 'type'],
     template: `
         <section class="note-list">
+            {{type}}
             <ul>
                 <li v-for="note in notes" :style=getStyle(note) :key="note.id">
-                    <NotePreview :note="note"/>
+                    <!-- <NotePreview :note="note"/> -->
+
+                    <Component 
+                        :is="type"
+                        :note="note" 
+                    />
+
+
                     <!-- <RouterLink :to="'/car/'+car.id">Details</RouterLink> | -->
                     <!-- <RouterLink :to="'/note/edit/'+note.id">Edit</RouterLink> | -->
 
@@ -51,5 +63,9 @@ export default {
     },
     components: {
         NotePreview,
+        NoteImg,
+        NoteTxt,
+        NoteVideo,
+        NoteTodos,
     }
 }

@@ -104,6 +104,62 @@ function _createNotes() {
                     txt: utilService.makeLorem()
                 }
             },
+            {
+                id: 'nf43',
+                createdAt: 1112222,
+                type: 'NoteImg',
+                isPinned: false,
+                style: {
+                    backgroundColor: '#fff'
+                }, info: {
+                    txt: 'im img!'
+                }
+            },
+            {
+                id: 'nf93',
+                createdAt: 1112222,
+                type: 'NoteImg',
+                isPinned: false,
+                style: {
+                    backgroundColor: '#fff'
+                }, info: {
+                    txt: 'im img!'
+                }
+            },
+            {
+                id: 'n234',
+                createdAt: 1112222,
+                type: 'NoteVideo',
+                isPinned: true,
+                style: {
+                    backgroundColor: '#eee'
+                }, info: {
+                    txt: 'im video!'
+                }
+            },
+            {
+                id: 'n543',
+                createdAt: 1112222,
+                type: 'NoteTodos',
+                isPinned: false,
+                style: {
+                    backgroundColor: '#fff'
+                }, 
+                info: {
+                    txt: 'im totod!'
+                }
+            },
+            {
+                id: 'n445',
+                createdAt: 1112222,
+                type: 'NoteVideo',
+                isPinned: true,
+                style: {
+                    backgroundColor: '#eee'
+                }, info: {
+                    txt: 'im video!'
+                }
+            },
         ]
         utilService.saveToStorage(NOTE_KEY, notes)
     }
