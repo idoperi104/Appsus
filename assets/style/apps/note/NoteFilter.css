@@ -1,9 +1,13 @@
-
+.note-nav{
+    position: relative;
+}
 
 .note-filter {
     text-align: center;
     display: flex;
     flex-direction: column;
+    position: sticky;
+    top: 1em;
 }
 
 .note-filter > input {

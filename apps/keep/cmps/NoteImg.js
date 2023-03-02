@@ -1,7 +1,7 @@
 export default {
     props: ['note'],
     template: `
-        <article :style="styleObject" class="note-preview">
+        <article :style="styleObject" class="note-preview note-img">
             <h2>{{note.info.title}}</h2>
             <img :src="note.info.url" alt="" />
         </article>

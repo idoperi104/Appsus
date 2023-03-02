@@ -14,6 +14,7 @@
     border-radius: .5rem;
     break-inside: avoid-column;
     position: relative;
+    padding-block: 0.3em;
     /* background-color: lightcyan; */
 }
 

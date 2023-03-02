@@ -10,3 +10,7 @@
     margin-inline: .5em;
     margin-block: .3em;
 }
+
+.note-img img{
+    width: 100%;
+}

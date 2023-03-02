@@ -3,6 +3,7 @@ import { showUserMsg, showSuccessMsg, showErrorMsg } from '../../../services/eve
 
 import NoteList from '../cmps/NoteList.js'
 import NoteEdit from '../cmps/NoteEdit.js'
+import NoteAdd from '../cmps/NoteAdd.js'
 import NoteFilter from '../cmps/NoteFilter.js'
 import NoteSearch from '../cmps/NoteSearch.js'
 
@@ -23,6 +24,11 @@ export default {
 
 
             <section class="note-main">
+
+                <NoteAdd
+                    @saved="setNotes"
+                    @isOnEdit="setIsOnEdit" 
+                />
 
                 <button class="btn-add-note fa-solid fa-plus" @click="isOnEdit=true"></button>
 
@@ -137,5 +143,6 @@ export default {
         NoteEdit,
         NoteFilter,
         NoteSearch,
+        NoteAdd,
     }
 }
