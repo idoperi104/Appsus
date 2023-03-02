@@ -26,6 +26,9 @@
     background-color: var(--mail3);
     border-radius: 555px;
     width: 95px;
+    height: 8px;
+    align-self: end;
+    color: var(--clr2)
 }
 
 .mail-compose form .btn-close {

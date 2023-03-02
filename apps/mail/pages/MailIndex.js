@@ -1,4 +1,4 @@
-import { MailService } from '../services/mail.service.js'
+import { MailService } from '../../mail/services/mail.service.js'
 import { eventBus, showSuccessMsg, showErrorMsg } from "../../../services/event-bus.service.js"
 
 import MailFilter from '../cmps/MailFilter.js'
@@ -11,16 +11,19 @@ export default {
     <section class="mail-index">
         <header class="main-mail-header">
             <article class="mail-logo">
+                <i class="fa-solid fa-bars"></i>
                 <div class="mail-logo-img"></div>
                 <h1>G'AMAL</h1>
             </article>
             <MailFilter @filter="setFilterBy" />
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"></path></svg> -->
         </header>
         <MailFolderList :unReadCount="totalUnReadMails" class="mail-folder-list" @compose="showCompose" @filter="setFilterBy" />
         <MailList
             :mails="filteredMails"
             @remove="removeMail"
-            @unRead="setUnRead"        />
+            @unRead="setUnRead"
+            />
         <MailCompose
             v-if="isCompose"
             @sand="sandMail"
@@ -34,10 +37,11 @@ export default {
             mails: [],
             filterBy: {
                 status: 'inbox',
-                subject: '', // no need to support complex text search
-                isRead: null, // (optional property, if missing: show all)
-                isStared: false, // (optional property, if missing: show all)
-                labels: [] // has any of the labels
+                subject: '', 
+                isRead: 'all',
+                isStar: 'all',
+                isStared: false, 
+                labels: [] 
             },
             isCompose: false,
         }
@@ -45,14 +49,17 @@ export default {
     },
     created() {
         eventBus.on('setToRead', this.setToRead)
+        eventBus.on('setIsStar', this.setIsStar)
+        eventBus.on('removeMail', this.removeMail)
         this.filterMails()
     },
     methods: {
         setFilterBy(filterBy) {
-            const { status, subject, isRead, isStared, labels } = filterBy
+            const { status, subject, isRead, isStar ,isStared, labels } = filterBy
             this.filterBy.status = status || this.filterBy.status
             this.filterBy.subject = subject || this.filterBy.subject
             this.filterBy.isRead = isRead || this.filterBy.isRead
+            this.filterBy.isStar = isStar || this.filterBy.isStar
             this.filterBy.isStared = isStared || this.filterBy.isStared
             this.filterBy.labels = labels || this.filterBy.labels
             this.filterMails()
@@ -77,6 +84,7 @@ export default {
                         return MailService.save(mail)
                     })
                     .then(this.filterMails)
+                    .then(() => this.filterBy.status = 'trash')
                     .then(() => {
                         showSuccessMsg('Mail moved to trash')
                     })
@@ -122,6 +130,15 @@ export default {
                     return mail
                 })
                 .then(MailService.save)
+        },
+        setIsStar(mail) {
+            MailService.save(mail)
+                .then((mail) => {
+                    showSuccessMsg(mail.isStar ? 'Mail stared' : 'Mail UnStared')
+                })
+                .catch(err => {
+                    showErrorMsg('Staring failed')
+                })
         },
     },
     computed: {
