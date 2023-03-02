@@ -1,0 +1,12 @@
+.app-footer{
+    height: var(--mainFooter);
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    background-color: var(--mail-1);
+}
+.app-footer p{
+    margin: 0;
+    font-size: 1.2rem;
+}
+

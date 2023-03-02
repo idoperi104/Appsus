@@ -37,10 +37,11 @@ export default {
             mails: [],
             filterBy: {
                 status: 'inbox',
-                subject: '', // no need to support complex text search
-                isRead: 'all', // (optional property, if missing: show all)
-                isStared: false, // (optional property, if missing: show all)
-                labels: [] // has any of the labels
+                subject: '', 
+                isRead: 'all',
+                isStar: 'all',
+                isStared: false, 
+                labels: [] 
             },
             isCompose: false,
         }
@@ -48,14 +49,17 @@ export default {
     },
     created() {
         eventBus.on('setToRead', this.setToRead)
+        eventBus.on('setIsStar', this.setIsStar)
+        eventBus.on('removeMail', this.removeMail)
         this.filterMails()
     },
     methods: {
         setFilterBy(filterBy) {
-            const { status, subject, isRead, isStared, labels } = filterBy
+            const { status, subject, isRead, isStar ,isStared, labels } = filterBy
             this.filterBy.status = status || this.filterBy.status
             this.filterBy.subject = subject || this.filterBy.subject
             this.filterBy.isRead = isRead || this.filterBy.isRead
+            this.filterBy.isStar = isStar || this.filterBy.isStar
             this.filterBy.isStared = isStared || this.filterBy.isStared
             this.filterBy.labels = labels || this.filterBy.labels
             this.filterMails()
@@ -80,6 +84,7 @@ export default {
                         return MailService.save(mail)
                     })
                     .then(this.filterMails)
+                    .then(() => this.filterBy.status = 'trash')
                     .then(() => {
                         showSuccessMsg('Mail moved to trash')
                     })
@@ -125,6 +130,15 @@ export default {
                     return mail
                 })
                 .then(MailService.save)
+        },
+        setIsStar(mail) {
+            MailService.save(mail)
+                .then((mail) => {
+                    showSuccessMsg(mail.isStar ? 'Mail stared' : 'Mail UnStared')
+                })
+                .catch(err => {
+                    showErrorMsg('Staring failed')
+                })
         },
     },
     computed: {

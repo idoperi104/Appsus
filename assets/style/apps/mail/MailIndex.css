@@ -1,8 +1,8 @@
 .mail-index {
-    height: calc(100vh - 140px);
+    height: var(--appHeight);
     display: grid;
-    grid-template-columns: 200px 1fr;
-    grid-template-rows: 100px 1fr;
+    grid-template-columns: minmax(200px, auto) 1fr;
+    grid-template-rows: minmax(80px, auto) 1fr;
 }
 
 .mail-list li {
@@ -36,8 +36,8 @@
 }
 
 .mail-btn-unRead[data-title]:hover::after {
-    left: -4.7em;
-    bottom: 1px;
+    left: -60px;
+    bottom: -21px;
 }
 
 .mail-btn-remove[data-title]:hover::after {

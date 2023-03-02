@@ -23,6 +23,7 @@ function query(filterBy = {}) {
             return mails.filter(mail => {
                 return _setStatusFilter(mail, filterBy.status)
                 && _setIsReadFilter(mail, filterBy.isRead)
+                && _setIsStarFilter(mail, filterBy.isStar)
                
             })
         })
@@ -49,7 +50,17 @@ function _setIsReadFilter(mail, isRead) {
         case 'read':
             return mail.isRead
     }
+}
 
+function _setIsStarFilter(mail, isStar) {
+    switch (isStar) {
+        case 'all':
+            return true
+        case 'unStar':
+            return mail.isStar === 'unStar'
+        case 'star':
+            return mail.isStar === 'star'
+    }
 }
 
 function get(MailId) {
@@ -89,6 +100,7 @@ function _createMail(subject, body, sentAt) {
         subject,
         body,
         isRead: false,
+        isStar: 'unStar',
         sentAt,
         removedAt: null,
         from: 'momo@momo.com',

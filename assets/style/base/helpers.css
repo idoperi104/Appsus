@@ -56,6 +56,10 @@
     content: "\f1b4";
 }
 
+.fa-solid.fa-star::before {
+    color: #f3d529;
+}
+
 
 [data-title] {
     position: relative;

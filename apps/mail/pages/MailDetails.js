@@ -4,11 +4,19 @@ import { eventBus } from "../../../services/event-bus.service.js"
 export default {
     template: `
         <section v-if="currMail" class="mail-details">
-            <h1>{{currMail.subject}}</h1>
-            <h4>from: {{currMail.from}}</h4>
-            <h4>received at: {{receivedAt}}</h4>
-            <p>{{currMail.body}}</p>
-            <RouterLink :to="'/mail'">back to list</RouterLink> 
+            <RouterLink class="back-to-mail fa-solid fa-arrow-left" data-title="back to mail" :to="'/mail'"></RouterLink> 
+            <header>
+                <h1>{{currMail.subject}}</h1>
+            </header>
+            <article>
+                <h4>from: {{currMail.from}}</h4>
+
+                <button class="currMail-btn-remove fa-regular fa-trash-can" :data-title="!!currMail.removedAt ? 'Delete for good' : 'Move To trash'" @click="remove"></button>
+                <h4>received at: {{receivedAt}}</h4> 
+            </article>
+            <main >
+                <p>{{currMail.body}}</p>
+            </main>
           
         </section>
     `,
@@ -30,6 +38,10 @@ export default {
         setRead() {
             eventBus.emit('setToRead', this.currMail.id)
         },
+        remove(){
+            eventBus.emit('removeMail', this.currMail.id)
+            this.$router.push('/mail')
+        }
     },
     computed: {
         mailId() {

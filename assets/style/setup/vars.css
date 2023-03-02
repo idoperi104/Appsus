@@ -21,5 +21,11 @@
   --mail-1: #f2f6fc;
 
   /* layout */
-  --mailPageStart: 25px
+  --mainHeader: 64px;
+  --mainFooter: 100px;
+
+  --appHeight: calc(100vh - var(--mainHeader));
+  /* mail */
+  --mailPageStart: 25px;
+
 }
