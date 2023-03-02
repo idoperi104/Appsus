@@ -16,17 +16,26 @@
     align-items: center;
 }
 
+.mail-logo i {
+   padding-inline-start: var(--mailPageStart);
+}
+
+.mail-logo i::before {
+   font-size: 20px;
+}
+
 .mail-logo-img {
     height: 50px;
     width: 60px;
     background-image: url(https://ssl.gstatic.com/gb/images/sprites/p_1x_451184c1472c.png);
     background-position-y: 885px;
+    scale: 0.7;
 }
 
 .main-mail-header h1 {
     margin: 0;
     font-family: cursive;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 }
 
 .mail-filter {
@@ -67,7 +76,7 @@
     color: var(--clr4);
 }
 
-.filter-active{
+.filter-active {
     color: var(--clr5);
     text-decoration: underline;
     font-weight: 600;

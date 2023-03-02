@@ -10,9 +10,9 @@ export default {
                 <article v-if="showOptions" class="filter-options">
                     <h4>filter by:</h4>
                     <p>
-                       <button :class="filterBy.isRead === 'read' ? filter-active : '' " @click="filterBy.isRead = 'read'">read</button>
-                       <button :class="filterBy.isRead === 'unRead' ? filter-active : '' " @click="filterBy.isRead = 'unRead'">unRead</button>
-                       <button :class="filterBy.isRead === 'all' ? filter-active : '' " @click="filterBy.isRead = 'all'">all</button>
+                       <button :class="{ 'filter-active': filterBy.isRead === 'read' }" @click="filterBy.isRead = 'read'">read</button>
+                       <button :class="{ 'filter-active': filterBy.isRead === 'unRead' }" @click="filterBy.isRead = 'unRead'">unRead</button>
+                       <button :class="{ 'filter-active': filterBy.isRead === 'all' }" @click="filterBy.isRead = 'all'">all</button>
                     </p>
                 </article>
         </section>
@@ -36,6 +36,7 @@ export default {
             this.showOptions = !this.showOptions
         }
     },
+
     watch: {
         filterBy: {
             handler() {

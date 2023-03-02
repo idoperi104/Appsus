@@ -11,6 +11,7 @@ export default {
     <section class="mail-index">
         <header class="main-mail-header">
             <article class="mail-logo">
+                <i class="fa-solid fa-bars"></i>
                 <div class="mail-logo-img"></div>
                 <h1>G'AMAL</h1>
             </article>

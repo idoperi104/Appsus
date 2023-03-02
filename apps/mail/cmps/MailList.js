@@ -9,8 +9,8 @@ export default {
                     <RouterLink :to="{name:'MailDetails', params:{mailId:mail.id}}">
                         <MailPreview :mail="mail"/>
                     </RouterLink> 
-                    <button class="mail-btn-remove" :data-title="!!mail.removedAt ? 'Delete for good' : 'Move To trash'" @click="remove(mail.id)">x</button>
-                    <button class="mail-btn-unRead" data-title="Un Read" @click="unRead(mail)">👁️</button>
+                    <button class="mail-btn-remove fa-regular fa-trash-can" :data-title="!!mail.removedAt ? 'Delete for good' : 'Move To trash'" @click="remove(mail.id)"></button>
+                    <button class="mail-btn-unRead fa-solid fa-eye" data-title="Un Read" @click="unRead(mail)"></button>
                 </li>
             </ul>
         </section>

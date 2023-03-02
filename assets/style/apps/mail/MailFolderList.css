@@ -3,10 +3,24 @@
 }
 
 .mail-folder-list ul li {
+    display: grid;
+    grid-template-columns: 20% 70% 10%;
     font-size: 1.3em;
     cursor: pointer;
     margin: 0 0 1em;
+    padding-left: var(--mailPageStart);
+    justify-items: start;
+    align-items: center;
 }
+
+.mail-folder-list li i {
+    margin-inline-end: 10px;
+
+}
+
 .mail-folder-list li:first-child {
-    margin: 1em 0 1em;
+    margin: 0.5em 0 1.5em;
+    background-color: var(--mail2);
+    border-radius: 20px;
+    padding-block: 10px;
 }

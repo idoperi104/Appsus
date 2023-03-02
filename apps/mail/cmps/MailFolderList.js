@@ -3,11 +3,11 @@ export default {
     template: `
         <section class="mail-folder-list">
             <ul class="clean-list">
-                <li @click="compose">Compose</li>
-                <li @click="filterBy.status = 'inbox'">Inbox <span v-if="checkStatus('inbox')" :title="unReadTitle">{{unReadCount}}</span></li>
-                <li @click="filterBy.status = 'sent'">Sent <span v-if="checkStatus('sent')" :title="unReadTitle">{{unReadCount}}</span></li>
-                <li @click="filterBy.status = 'trash'">Trash <span v-if="checkStatus('trash')" :title="unReadTitle">{{unReadCount}}</span></li>
-                <li @click="filterBy.status = 'draft'">Draft <span v-if="checkStatus('draft')" :title="unReadTitle">{{unReadCount}}</span></li>
+                <li @click="compose"><i class="fa-solid fa-pencil"></i> Compose</li>
+                <li  @click="filterBy.status = 'inbox'"> <i class="fa-solid fa-inbox"></i> Inbox <span v-if="checkStatus('inbox')" :title="unReadTitle">{{unReadCount}}</span></li>
+                <li @click="filterBy.status = 'sent'"><i class="fa-regular fa-paper-plane"></i> Sent <span v-if="checkStatus('sent')" :title="unReadTitle">{{unReadCount}}</span></li>
+                <li @click="filterBy.status = 'trash'"><i class="fa-solid fa-trash-can"></i> Trash <span v-if="checkStatus('trash')" :title="unReadTitle">{{unReadCount}}</span></li>
+                <li @click="filterBy.status = 'draft'"><i class="fa-regular fa-file"></i> Draft <span v-if="checkStatus('draft')" :title="unReadTitle">{{unReadCount}}</span></li>
             </ul>
         </section>
     `,
