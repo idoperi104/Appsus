@@ -2,6 +2,10 @@
     text-align: center;
 }
 
+.mail-folder-list ul {
+    transition: 1s;
+}
+
 .mail-folder-list ul li {
     display: grid;
     grid-template-columns: 20% 62% 18%;

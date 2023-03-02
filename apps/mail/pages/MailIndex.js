@@ -44,7 +44,7 @@ export default {
                 labels: []
             },
             isCompose: false,
-            isClose: false
+            isClose: true
         }
 
     },

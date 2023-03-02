@@ -17,12 +17,12 @@
 }
 
 .mail-logo i {
-   padding-inline-start: var(--mailPageStart);
-   cursor: pointer;
+    padding-inline-start: var(--mailPageStart);
+    cursor: pointer;
 }
 
 .mail-logo i::before {
-   font-size: 20px;
+    font-size: 20px;
 }
 
 .mail-logo-img {
@@ -107,4 +107,28 @@
 
 .mail-filter>input:focus-visible {
     outline: none;
+}
+
+@media(max-width: 570px) {
+    .main-mail-header h1 {
+        display: none;
+    }
+    .main-mail-header {
+        grid-template-columns: auto 1fr;
+    }
+}
+
+@media(max-width: 470px) {
+    .main-mail-header .mail-logo-img {
+        display: none;
+    }
+    .main-mail-header {
+        grid-template-columns: 62px 1fr;
+    }
+    .mail-logo i{
+        padding: 0;
+    }
+    .mail-filter input{
+        min-width: auto;
+    }
 }
