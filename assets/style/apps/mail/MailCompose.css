@@ -15,6 +15,7 @@
     background-color: var(--mail-1);
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .mail-compose form {
@@ -33,7 +34,13 @@
     width: 95px;
     height: 8px;
     align-self: end;
-    color: var(--clr2)
+    color: var(--clr2);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.mail-compose form .btn-sand:hover {
+    box-shadow: 0 0 3px var(--clr4);
 }
 
 .mail-compose form .btn-close {
@@ -45,7 +52,8 @@
 }
 
 .mail-compose form h2 {
-   margin: 0;
+    margin: 0;
+    padding-inline-start: 10px;
 }
 
 .mail-compose form>* {

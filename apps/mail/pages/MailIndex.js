@@ -57,8 +57,9 @@ export default {
     methods: {
         setFilterBy(filterBy) {
             const { status, subject, isRead, isStar, isStared, labels } = filterBy
+
             this.filterBy.status = status || this.filterBy.status
-            this.filterBy.subject = subject || this.filterBy.subject
+            this.filterBy.subject = subject === '' ? 'all' : subject || this.filterBy.subject
             this.filterBy.isRead = isRead || this.filterBy.isRead
             this.filterBy.isStar = isStar || this.filterBy.isStar
             this.filterBy.isStared = isStared || this.filterBy.isStared

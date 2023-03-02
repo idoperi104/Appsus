@@ -14,11 +14,6 @@ export default {
                        <button :class="{ 'filter-active': filterBy.isRead === 'unRead' }" @click="filterBy.isRead = 'unRead'">unRead</button>
                        <button :class="{ 'filter-active': filterBy.isRead === 'all' }" @click="filterBy.isRead = 'all'">all</button>
                     </p>
-                    <!-- <p>
-                       <button :class="{ 'filter-active': filterBy.isStar === 'star' }" @click="filterBy.isStar = 'star'">star</button>
-                       <button :class="{ 'filter-active': filterBy.isStar === 'unStar' }" @click="filterBy.isStar = 'unStar'">unStar</button>
-                       <button :class="{ 'filter-active': filterBy.isStar === 'all' }" @click="filterBy.isStar = 'all'">all</button>
-                    </p> -->
                 </article>
         </section>
     `,
@@ -35,10 +30,7 @@ export default {
     },
     methods: {
         filter() {
-            console.log('filterBy changed', this.filterBy)
-            if (this.filterBy.subject === '') this.filterBy.subject = 'all'
             this.$emit('filter', this.filterBy)
-            if (this.filterBy.subject === 'all') this.filterBy.subject = ''
         },
         toggleOptions() {
             this.showOptions = !this.showOptions

@@ -1,9 +1,11 @@
 .mail-folder-list {
     text-align: center;
+    position: relative;
 }
 
 .mail-folder-list ul {
-    /* transition: 1s; */
+    position: sticky;
+    top: 1rem;
 }
 
 .mail-folder-list ul li {
