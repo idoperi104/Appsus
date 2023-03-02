@@ -1,4 +1,4 @@
-import { MailService } from '../services/mail.service.js'
+import { MailService } from '../../mail/services/mail.service.js'
 import { eventBus, showSuccessMsg, showErrorMsg } from "../../../services/event-bus.service.js"
 
 import MailFilter from '../cmps/MailFilter.js'
@@ -15,12 +15,14 @@ export default {
                 <h1>G'AMAL</h1>
             </article>
             <MailFilter @filter="setFilterBy" />
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"></path></svg> -->
         </header>
         <MailFolderList :unReadCount="totalUnReadMails" class="mail-folder-list" @compose="showCompose" @filter="setFilterBy" />
         <MailList
             :mails="filteredMails"
             @remove="removeMail"
-            @unRead="setUnRead"        />
+            @unRead="setUnRead"
+            />
         <MailCompose
             v-if="isCompose"
             @sand="sandMail"
@@ -35,7 +37,7 @@ export default {
             filterBy: {
                 status: 'inbox',
                 subject: '', // no need to support complex text search
-                isRead: null, // (optional property, if missing: show all)
+                isRead: 'all', // (optional property, if missing: show all)
                 isStared: false, // (optional property, if missing: show all)
                 labels: [] // has any of the labels
             },
