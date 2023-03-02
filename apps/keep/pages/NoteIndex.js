@@ -22,17 +22,17 @@ export default {
             </section>
 
 
-            <section class="note-main">
+            <section class="note-main"></section>
 
                 <button class="btn-add-note fa-solid fa-plus" @click="isOnEdit=true"></button>
 
                 <NoteEdit
                     @saved="setNotes"
-                    v-if="isOnEdit"  
+                    v-if="isOnEdit"
                     @isOnEdit="setIsOnEdit" 
                 />
 
-                <h3 class="pin-title" v-if="notes && filterBy && isPinnedExist">pinned</h3>
+                <h3 class="pin-title" v-if="notes && filterBy && isPinnedExist">PINNED</h3>
     
                 <NoteList
                     :notes="getPinned"
@@ -43,7 +43,7 @@ export default {
                     @duplicate="duplicateNote"
                 />
 
-                <h3 class="pin-title" v-if="notes && filterBy && isUnPinnedExist">others</h3>
+                <h3 class="pin-title" v-if="notes && filterBy && isUnPinnedExist">OTHERS</h3>
 
                 <NoteList
                     :notes="getUnPinned"
