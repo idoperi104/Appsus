@@ -20,6 +20,11 @@
   --mailBase: #f6f8fc;
   --mail-1: #f2f6fc;
 
+
+  --note3: #e0e0e0;;;
+  --note2: #f1f3f4;;
+  --note1: #feefc3;
+
   /* layout */
   --mainHeader: 64px;
   --mainFooter: 100px;

@@ -1,21 +1,25 @@
 
+
 .note-list ul {
     columns: auto 12em;
     padding: 5px;
+    padding-inline-end: clamp(0px, 5vw ,80px);
+
     /* background-color: lightblue; */
     list-style-type: none;
 }
-.note-list ul li{
-    padding: 2px;
-    /* background-color: lightcyan; */
-}
 
 .note-list li{
-    border: 1px solid black;
+    border: 1px solid var(--note3);
     border-radius: .5rem;
     break-inside: avoid-column;
     position: relative;
     /* background-color: lightcyan; */
+}
+
+.note-list li:hover{
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%);
+    cursor: pointer;
 }
 
 .note-list li:not(:first-of-type){
@@ -39,3 +43,5 @@
 .note-list li:hover > button{
     opacity: 1;
 }
+
+

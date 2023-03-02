@@ -52,7 +52,6 @@ export default {
         getStyle(note) {
             return {
                 backgroundColor: note.style.backgroundColor,
-                border: 'none'
             }
         },
         btnPinnedStyle(note){
