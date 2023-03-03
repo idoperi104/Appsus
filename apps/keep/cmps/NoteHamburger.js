@@ -9,8 +9,9 @@ export default {
                 class="fa-solid fa-bars"
                 :class="btnClass">
             </button>
-            <NoteFilter v-if="isShow"
-                    @filter="setFilterBy"
+            <NoteFilter 
+                v-if="isShow"
+                @filter="setFilterBy"
             />
         </section>
     `,
@@ -34,8 +35,8 @@ export default {
             return window.innerWidth < 640 ? false : true
         },
         closeIsShow(ev){
-            if (!this.isShow || window.innerWidth > 640) return
-            this.isShow = false
+            console.log(ev);
+            if (this.isShow && window.innerWidth < 640 && ev.clientX > 80) this.isShow = false
         },
     },
     mounted(){

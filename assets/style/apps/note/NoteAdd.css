@@ -12,7 +12,7 @@
     margin: auto;
 
     display: flex;
-    gap: .5em;
+    gap: 1em;
 
     padding: .5em;
     background-color: var(--clr1);
@@ -45,6 +45,10 @@
     font-size: 16px;
     transition: all 0.2s ease-in-out;
     background-color: var(--clr1);
+}
+
+.note-add form>input:first-child {
+    max-width: calc(100% - 40px)
 }
 
 .note-add form>input:focus {

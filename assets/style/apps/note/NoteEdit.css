@@ -37,7 +37,7 @@
     background-color: var(--clr2);
 }
 
-.note-edit form button:first-child {
+.note-edit form .btn-close {
     position: absolute;
     right: .2em;
     top: .2em;

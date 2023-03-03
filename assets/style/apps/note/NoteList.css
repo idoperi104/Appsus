@@ -32,12 +32,25 @@
 
 .note-list li > button{
     opacity: 0;
-    background-color: rgba(255, 0, 0, 0);
+    background-color: transparent;
     border: none;
     transition: opacity 0.2s;
     padding: 0;
 }
 .note-list li:hover > button{
+    opacity: 1;
+}
+
+
+.palette-li.color-palette,
+.palette-li.color-palette button {
+    border: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: 1;
+}
+.note-list li:hover > .color-palette,
+.palette-li.color-palette button {
     opacity: 1;
 }
 
@@ -50,6 +63,7 @@
     font-size: .8em;
     overflow: hidden;
 }
+
 
 @media(min-width: 30em) {
     .note-list ul {

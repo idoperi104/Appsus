@@ -1,8 +1,8 @@
 export default {
     template: `
-        <section class="color-palate">
-            <button class="fa-solid fa-palette"></button>
-            <div class="palette">
+        <section class="color-palette">
+            <button @click.prevent="isShow = !isShow" class="fa-solid fa-palette"></button>
+            <div v-if="isShow" class="palette">
                 <button 
                     v-for="color in colors"
                     @click.prevent="sendColor(color)" 
@@ -15,21 +15,22 @@ export default {
     data() {
         return {
             colors: [
-                '#f28b82',
-                '#f28b82',
-                '#f28b82',
-                '#f28b82',
-                '#f28b82',
-                '#f28b82',
-                '#f28b82',
-                '#f28b82',
-                '#f28b82',
-            ]
+                '#ffadad',
+                '#ffd6a5',
+                '#fdffb6',
+                '#caffbf',
+                '#9bf6ff',
+                '#a0c4ff',
+                '#bdb2ff',
+                '#ffc6ff',
+                '#f0efeb',
+            ],
+            isShow: false
         }
     },
     methods: {
         sendColor(color){
-            console.log(color);
+            this.isShow = !this.isShow
             this.$emit('color', color)
         },
     },

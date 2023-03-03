@@ -3,6 +3,9 @@ import NoteImg from './NoteImg.js'
 import NoteTxt from './NoteTxt.js'
 import NoteVideo from './NoteVideo.js'
 import NoteTodos from './NoteTodos.js'
+import ColorPalette from '../cmps/ColorPalette.js'
+
+import {noteService} from '../services/note.service.js'
 
 export default {
     props: ['notes'],
@@ -22,6 +25,14 @@ export default {
                             :style=btnPinnedStyle(note)
                             class="btn-pin fa-solid fa-thumbtack"></button>
                     <button @click="duplicate(note)" class="fa-regular fa-clone"></button>
+
+                    <ColorPalette
+                        class="palette-li"
+                        @color="(color) => {
+                            note.style.backgroundColor = color;
+                            save(note)
+                        }"
+                    />
 
                 </li>
             </ul>
@@ -58,6 +69,10 @@ export default {
             return {
                 color: (note.isPinned) ? 'var(--clr5)' : 'var(--clr3)'
             }
+        },
+        save(note){
+            console.log(note);
+            noteService.save(note)
         }
     },
     components: {
@@ -66,5 +81,6 @@ export default {
         NoteTxt,
         NoteVideo,
         NoteTodos,
+        ColorPalette,
     }
 }
