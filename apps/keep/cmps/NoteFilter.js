@@ -1,7 +1,7 @@
 export default {
     template: `
 
-        <section @click.stop="" class="note-filter">
+        <section class="note-filter">
 
             <input @input="filter" type="radio" id="all" value="" v-model="filterBy.type">
             <label for="all" class="fa-regular fa-lightbulb"></label>
@@ -25,6 +25,9 @@ export default {
     methods: {
         filter() {
             this.$emit('filter', this.filterBy)
+        },
+        stop(){
+            console.log('stopped');
         }
     },
 }
