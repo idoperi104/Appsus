@@ -28,7 +28,7 @@
     grid-area: h;
     border-bottom: 1px solid var(--clr2);
     position: sticky;
-    top: var(--mainHeader);
+    top: 0;
     z-index: 1;
     background-color: var(--clr1);
 

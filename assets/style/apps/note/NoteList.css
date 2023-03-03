@@ -1,7 +1,7 @@
 
 
 .note-list ul {
-    columns: auto 10em;
+    columns: auto 8em;
     padding: 5px;
     list-style-type: none;
 }

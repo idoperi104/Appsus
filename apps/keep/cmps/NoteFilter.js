@@ -1,7 +1,7 @@
 export default {
     template: `
 
-        <section class="note-filter">
+        <section @click.stop="" class="note-filter">
 
             <input @input="filter" type="radio" id="all" value="" v-model="filterBy.type">
             <label for="all" class="fa-regular fa-lightbulb"></label>
