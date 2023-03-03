@@ -3,7 +3,7 @@
 .note-list ul {
     columns: auto 12em;
     padding: 5px;
-    padding-inline-end: clamp(0px, 5vw ,80px);
+    /* padding-inline-end: clamp(0px, 5vw ,80px); */
 
     /* background-color: lightblue; */
     list-style-type: none;

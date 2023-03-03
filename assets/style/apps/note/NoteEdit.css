@@ -13,7 +13,7 @@
 
 
 .note-edit form {
-    width: clamp(200px, 95vw, 400px);
+    width: clamp(200px, 95vw, 600px);
     min-height: 50vh;
     margin: auto;
     margin-block-start: min(30%, 150px);

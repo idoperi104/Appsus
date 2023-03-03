@@ -5,13 +5,13 @@
 
 
 .note-add form {
-    width: clamp(200px, 95vw, 500px);
+    width: clamp(200px, 80vw, 600px);
     /* min-height: 30vh; */
     margin: auto;
     /* margin-block-start: min(30%, 150px); */
 
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: .5em;
 
 
@@ -21,6 +21,10 @@
     box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
 
     position: relative;
+}
+
+.note-add form.show-all{
+    flex-direction: column;
 }
 
 .note-add .btn-save {
