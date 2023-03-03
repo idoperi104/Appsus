@@ -8,7 +8,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    gap: 14px 13px;
+    gap: 9px 6px;
     align-items: center;
     justify-items: center;
     box-shadow: 0 0 5px 2px #00000080;
@@ -16,7 +16,7 @@
     background: var(--clr1);
     color: var(--clrmsg);
 
-    z-index: 1;
+    z-index: 3;
 }
 
 .main-nav-layout .fa-house {

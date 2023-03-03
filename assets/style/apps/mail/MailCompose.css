@@ -1,14 +1,18 @@
 .mail-compose {
-    position: absolute;
+    position: fixed;
     display: grid;
-    width: 50vw;
-    height: 70vh;
+    min-width: 300px;
+    max-width: 500px;
+    max-height: 540px;
+    width: calc(100vw - 95px);
+    height: calc(100vh - var(--mainHeader) - 1em) ;
     bottom: 8px;
     right: 30px;
     background-color: var(--clr2);
     box-shadow: 0px 0px 3px 0px black;
     border-radius: 5px;
     padding: 6px;
+    z-index: 2;
 }
 
 .mail-compose .compose-header {
@@ -20,6 +24,7 @@
 
 .mail-compose form {
     display: grid;
+    grid-template-rows: repeat(3, auto) 1fr auto;
     gap: 3px;
 }
 
@@ -54,6 +59,7 @@
 .mail-compose form h2 {
     margin: 0;
     padding-inline-start: 10px;
+    padding-block: 5px;
 }
 
 .mail-compose form>* {
@@ -65,8 +71,10 @@
 }
 
 
-/* 
-.mail-compose form input,
-.mail-compose form textarea{
-    border: 0;
-} */
+@media(max-width: 40em) {
+    .mail-compose{
+        max-height: none;
+        max-width: none;
+        right: 5px;
+    }
+}

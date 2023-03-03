@@ -1,18 +1,16 @@
 .mail-index {
     min-height: var(--appHeight);
     display: grid;
+    grid-template-rows: var(--mainHeader) 1fr;
 }
 
 .mail-index.open {
     grid-template-columns: 200px 1fr;
-    grid-template-rows: minmax(60px, auto) 1fr;
 }
 
 .mail-index.close {
     grid-template-columns: auto 1fr;
-    grid-template-rows: minmax(60px, auto) 1fr;
 }
-
 
 .mail-list li {
     position: relative;

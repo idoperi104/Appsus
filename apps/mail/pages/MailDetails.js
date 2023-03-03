@@ -5,9 +5,7 @@ export default {
     template: `
         <section v-if="currMail" class="mail-details">
             <RouterLink class="back-to-mail fa-solid fa-arrow-left" data-title="back to mail" :to="'/mail'"></RouterLink> 
-            <header>
                 <h1>{{currMail.subject}}</h1>
-            </header>
             <article>
                 <h4>from: {{currMail.from}}</h4>
 
