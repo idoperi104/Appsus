@@ -3,19 +3,18 @@ import { showUserMsg, showSuccessMsg, showErrorMsg } from '../../../services/eve
 
 export default {
     template: `
-        <section class="note-edit">
+        <section @click.stop class="note-edit">
             <form @submit.prevent="save">
                 <button @click="closeEdit">x</button>
 
-                <div v-if="isNew" class="note-edit-type">
-                    <input @input="setType" type="radio" id="note-edit-txt" value="NoteTxt" v-model="note.type">
-                    <label for="note-edit-txt" class="fa-regular fa-file-lines"></label>
-                    <input @input="setType" type="radio" id="note-edit-img" value="NoteImg" v-model="note.type">
-                    <label for="note-edit-img"class="fa-regular fa-image"></label>
-                    <input @input="setType" type="radio" id="note-edit-vid" value="NoteVideo" v-model="note.type">
-                    <label for="note-edit-vid" class="fa-solid fa-video"></label>
-                    <input @input="setType" type="radio" id="note-edit-todo" value="NoteTodos" v-model="note.type">
-                    <label for="note-edit-todo" class="fa-solid fa-list-ul"></label>
+                    <label for="note-edit-txt" class="fa-regular fa-file-lines"
+                        v-if="note.type === 'NoteTxt'"></label>
+                    <label for="note-edit-img"class="fa-regular fa-image"
+                        v-if="note.type === 'NoteImg'"></label>
+                    <label for="note-edit-vid" class="fa-solid fa-video"
+                        v-if="note.type === 'NoteVideo'"></label>
+                    <label for="note-edit-todo" class="fa-solid fa-list-ul"
+                        v-if="note.type === 'NoteTodos'"></label>
                 </div>
 
                 <!-- <label for="title">title:</label> -->
@@ -24,6 +23,7 @@ export default {
                 <!-- <label v-if="note.type === 'NoteTxt'" for="txt">txt:</label> -->
                 <input ref="focusInput" v-if="note.type === 'NoteTxt'" name="txt" type="text" v-model="note.info.txt" placeholder="take a note...">
                 
+                <img v-if="note.type === 'NoteImg'" :src="note.info.url"/>
                 <!-- <label v-if="note.type === 'NoteImg' || note.type === 'NoteVideo'" for="url">url:</label> -->
                 <input v-if="note.type === 'NoteImg' || note.type === 'NoteVideo'" name="url" type="text" v-model="note.info.url" placeholder="enter url...">
                 
@@ -38,7 +38,7 @@ export default {
     data() {
         return {
             note: noteService.getEmptyNote(),
-            isNew: true,
+            isNew: false,
         }
     },
     created() {

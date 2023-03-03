@@ -8,6 +8,8 @@
     flex-direction: column;
     position: sticky;
     top: calc(var(--mainHeader) + 1rem);
+    margin-block-start: 1em;
+
 }
 
 .note-filter > input {
