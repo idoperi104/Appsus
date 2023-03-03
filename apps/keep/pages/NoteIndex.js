@@ -11,17 +11,6 @@ import NoteHamburger from '../cmps/NoteHamburger.js'
 export default {
     template: `
         <section class="note-index">
-            <!-- <section class="note-nav" v-if="true">
-                <NoteFilter
-                    @filter="setFilterBy"
-                />
-            </section> -->
-
-            <!-- <section class="note-ham">
-                <NoteHamburger
-                    @filter="setFilterBy"
-                />
-            </section> -->
 
             <section class="note-header">
                 <NoteHamburger
@@ -39,8 +28,6 @@ export default {
                     @saved="setNotes"
                     @isOnEdit="setIsOnEdit" 
                 />
-
-                <!-- <button class="btn-add-note fa-solid fa-plus" @click="isOnEdit=true"></button> -->
 
                 <NoteEdit
                     @saved="setNotes"

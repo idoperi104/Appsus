@@ -1,6 +1,8 @@
 import { noteService } from "../services/note.service.js"
 import { showUserMsg, showSuccessMsg, showErrorMsg } from '../../../services/event-bus.service.js'
 
+import ColorPalette from '../cmps/ColorPalette.js'
+
 export default {
     template: `
         <section class="note-add">
@@ -20,8 +22,12 @@ export default {
                 <label v-if="isShowAll" for="bg-color">bg-color:</label>
                 <input v-if="isShowAll" name="bg-color" type="color" v-model="note.style.backgroundColor" placeholder="write note">
 
-                <button v-if="isShowAll" class="btn-save">Save</button>
 
+                <ColorPalette
+                    @color="setColor"
+                />
+
+                <button v-if="isShowAll" class="btn-save">Save</button>
                         
                 <div class="note-edit-type">
                         <input @input="setType" type="radio" id="note-edit-txt" value="NoteTxt" v-model="note.type">
@@ -41,7 +47,11 @@ export default {
     data() {
         return {
             note: noteService.getEmptyNote(),
-            isShowAll: false,
+
+            
+            isShowAll: true,
+            // ////////
+            // isShowAll: false,
         }
     },
     created() {
@@ -77,6 +87,9 @@ export default {
         atNewAdd(){
             this.isShowAll = true
             this.note.isPinned = true
+        },
+        setColor(color){
+            this.note.style.backgroundColor = color
         }
     },
     mounted() {
@@ -85,6 +98,9 @@ export default {
     },
     unmounted() {
         window.removeEventListener('click', this.setIsShowFalse)
+    },
+    components:{
+        ColorPalette,
     }
 
 }
