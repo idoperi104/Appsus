@@ -1,3 +1,7 @@
+.note-search{
+    height: fit-content;
+}
+
 .note-search > input{
     width: 90%;
     max-width: 600px;
