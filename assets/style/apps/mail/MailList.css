@@ -8,7 +8,7 @@
 }
 
 .mail-list ul >*:first-child {
-    border-top: 1px solid var(--clr4);
+    border-top: 1px solid rgba(45, 44, 44, 0.119);
 }
 
 .mail-preview {
@@ -18,13 +18,15 @@
     cursor: pointer;
     background-color: var(--gray1);
     padding: 8px;
-    border-bottom: 1px solid var(--clr4);
+    border-bottom: 1px solid rgba(45, 44, 44, 0.119);
     opacity: 0.8;
     transition: 0.2s;
+    color: var(--clrmsg);
 }
 
 .mail-preview.isRead {
-    background-color: var(--mail1);
+    background-color: var(--mail-1);
+    color: unset;
 }
 
 .mail-preview i.fa-star {

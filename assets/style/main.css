@@ -26,6 +26,7 @@
 @import 'apps/mail/MailCompose.css';
 @import 'apps/mail/mailHeader.css';
 @import 'apps/mail/MailDetails.css';
+@import 'apps/mail/MailFilter.css';
 
 /* Note Components */
 @import 'apps/note/NoteIndex.css';

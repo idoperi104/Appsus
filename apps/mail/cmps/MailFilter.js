@@ -7,13 +7,10 @@ export default {
                 placeholder="Search"
                 type="text" />
                 <button @click="toggleOptions" class="fa-solid fa-filter"></button>
-                <article v-if="showOptions" class="filter-options">
-                    <h4>filter by:</h4>
-                    <p>
-                       <button :class="{ 'filter-active': filterBy.isRead === 'read' }" @click="filterBy.isRead = 'read'">read</button>
-                       <button :class="{ 'filter-active': filterBy.isRead === 'unRead' }" @click="filterBy.isRead = 'unRead'">unRead</button>
-                       <button :class="{ 'filter-active': filterBy.isRead === 'all' }" @click="filterBy.isRead = 'all'">all</button>
-                    </p>
+                <article v-if="showOptions" class="filter-options">                
+                    <button :class="{ 'filter-active': filterBy.isRead === 'all' }" @click="filterBy.isRead = 'all'">all</button>
+                    <button data-title="Read" class="fa-solid fa-eye" :class="{ 'filter-active': filterBy.isRead === 'read' }" @click="filterBy.isRead = 'read'"></button>
+                    <button data-title="Un read" class="fa-solid fa-eye-slash" :class="{ 'filter-active': filterBy.isRead === 'unRead' }" @click="filterBy.isRead = 'unRead'"></button>
                 </article>
         </section>
     `,
@@ -22,8 +19,7 @@ export default {
             filterBy: {
                 subject: '',
                 isRead: 'all',
-                isStar: 'all'
-            
+
             },
             showOptions: false,
         }
@@ -44,5 +40,10 @@ export default {
             },
             deep: true
         },
+        'filterBy.isRead': {
+            handler(){
+                this.showOptions = false
+            }
+        }
     }
 }

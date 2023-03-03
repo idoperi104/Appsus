@@ -1,0 +1,86 @@
+.mail-filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+}
+
+.mail-filter button.fa-solid.fa-filter {
+    border-radius: 50%;
+    border: 0;
+    background-color: var(--mailBase);
+    margin-inline-end: 2.5rem;
+
+    transition: background-color .4s;
+}
+
+.mail-filter button.fa-solid.fa-filter:hover {
+    background-color: var(--clr2);
+}
+
+.mail-filter .filter-options {
+    display: grid;
+    justify-items: center;
+    position: absolute;
+    background-color: var(--mailBase);
+    box-shadow: 0 0 2px 3px #00000026;
+    top: 40px;
+    right: 37px;
+    z-index: 1;
+    width: auto;
+    padding: 2px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+
+.filter-options button {
+    border-radius: 50%;
+    background-color: var(--mailBase);
+    border: 0;
+    font-size: 1.1em;
+    color: var(--clr4);
+}
+
+.filter-options button:hover {
+    background-color: var(--clr2);
+}
+
+.filter-options button:hover::after {
+    bottom: 12px;
+    width: max-content;
+    left: 35px;
+}
+
+.mail-filter .filter-active {
+    color: var(--clr5);
+    background-color: var(--clr2);
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.mail-filter input {
+    width: 90%;
+    min-width: 300px;
+    max-width: 500px;
+    display: block;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 0.4rem;
+    font-size: 16px;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    transition: all 0.2s ease-in-out;
+    background-color: #eee;
+}
+
+.mail-filter>input:focus {
+    background-color: white;
+    box-shadow: 0px 1px 6px -1px;
+    border: none;
+}
+
+.mail-filter>input:focus-visible {
+    outline: none;
+}
