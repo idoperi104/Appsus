@@ -1,13 +1,15 @@
 .note-search{
     height: fit-content;
+    margin-inline-end: 2.5em;
 }
 
 .note-search > input{
     width: 90%;
-    max-width: 600px;
+    max-width: 500px;
     height: 3em;
     display: block;
     margin: .5em auto;
+    /* margin: 0.5em 2em .5em 0em; */
     box-sizing: border-box;
     border: none;
     border-radius: .4rem;
