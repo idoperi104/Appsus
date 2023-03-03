@@ -1,0 +1,23 @@
+
+.note-hamburger{
+    width: 80px;
+}
+
+.note-hamburger button{
+    background-color: transparent;
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    margin-inline-start: 1rem;
+    margin-block-start: .5rem;
+    transition: all .3s;
+}
+
+.note-hamburger button:hover{
+    background-color: var(--note4);
+}
+
+.note-hamburger button.show-filter{
+    background-color: var(--note4);
+}

@@ -1,11 +1,8 @@
 
 
 .note-list ul {
-    columns: auto 12em;
+    columns: auto 10em;
     padding: 5px;
-    /* padding-inline-end: clamp(0px, 5vw ,80px); */
-
-    /* background-color: lightblue; */
     list-style-type: none;
 }
 
@@ -15,7 +12,6 @@
     break-inside: avoid-column;
     position: relative;
     padding-block: 0.3em;
-    /* background-color: lightcyan; */
 }
 
 .note-list li:hover{
@@ -25,7 +21,6 @@
 
 .note-list li:not(:first-of-type){
     margin-block-start: 1rem;
-    /* background-color: lightcyan; */
 }
 
 .btn-pin{
@@ -46,3 +41,9 @@
 }
 
 
+@media(min-width: 40em) {
+    .note-list ul {
+        columns: auto 12em;
+    }
+    
+}

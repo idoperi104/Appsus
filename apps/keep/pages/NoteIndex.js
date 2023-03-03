@@ -6,17 +6,27 @@ import NoteEdit from '../cmps/NoteEdit.js'
 import NoteAdd from '../cmps/NoteAdd.js'
 import NoteFilter from '../cmps/NoteFilter.js'
 import NoteSearch from '../cmps/NoteSearch.js'
+import NoteHamburger from '../cmps/NoteHamburger.js'
 
 export default {
     template: `
         <section class="note-index">
-            <section class="note-nav">
+            <!-- <section class="note-nav" v-if="true">
                 <NoteFilter
                     @filter="setFilterBy"
                 />
-            </section>
+            </section> -->
+
+            <!-- <section class="note-ham">
+                <NoteHamburger
+                    @filter="setFilterBy"
+                />
+            </section> -->
 
             <section class="note-header">
+                <NoteHamburger
+                    @filter="setFilterBy"
+                />
                 <NoteSearch
                     @filter="setFilterBy"
                 />
@@ -144,5 +154,6 @@ export default {
         NoteFilter,
         NoteSearch,
         NoteAdd,
+        NoteHamburger,
     }
 }

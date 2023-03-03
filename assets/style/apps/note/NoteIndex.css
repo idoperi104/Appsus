@@ -10,14 +10,14 @@
 
 .note-index{
     display: grid;
-    grid-template-columns: 80px 1fr;
     grid-template-rows: 4em 1fr;
     grid-template-areas: 
-    "h h"
-    "n m";
+    "h"
+    "m";
 
     background-color: var(--clr1);
     min-height: calc(100vh - 100px);
+
 }
 
 .note-nav {
@@ -27,17 +27,41 @@
 .note-header {
     grid-area: h;
     border-bottom: 1px solid var(--clr2);
+    position: sticky;
+    top: var(--mainHeader);
+    z-index: 1;
+    background-color: var(--clr1);
+
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: min-content 1fr;
 }
 
 .note-main {
     grid-area: m;
-    margin-block-start: 2em;
-    padding-inline-end: clamp(0px, 5vw ,80px);
-    padding-inline-start: clamp(0px, 5vw ,80px);
-    /* background-color: white; */
+    margin-block-start: 1em;
+    /* padding-inline-end: .5em; */
 }
 
 .pin-title{
     margin: .5em;
 }
 
+@media(max-width: 40em) {
+    
+}
+
+@media(min-width: 40em) {
+    .note-main {
+        padding-inline-end: clamp(0px, 4vw ,80px);
+        padding-inline-start: clamp(0px, 4vw ,80px);
+        margin-block-start: 2em;
+        padding-inline-end: 1em;
+    }
+    .note-index{
+        grid-template-columns: 80px 1fr;
+        grid-template-areas: 
+        "h h"
+        "n m";    
+    }
+}

@@ -1,19 +1,18 @@
 .note-add {
     display: grid;
     grid-template-rows: 1fr 3em;
+
+    margin-inline: .5em ;
 }
 
 
 .note-add form {
-    width: clamp(200px, 80vw, 600px);
-    /* min-height: 30vh; */
+    width: clamp(100px, 100%, 600px);
+
     margin: auto;
-    /* margin-block-start: min(30%, 150px); */
 
     display: flex;
-    /* flex-direction: column; */
     gap: .5em;
-
 
     padding: .5em;
     background-color: var(--clr1);
@@ -23,7 +22,7 @@
     position: relative;
 }
 
-.note-add form.show-all{
+.note-add form.show-all {
     flex-direction: column;
 }
 
@@ -37,7 +36,7 @@
     right: .5em;
 }
 
-.note-add form > input {
+.note-add form>input {
     padding: .6em;
     width: 100%;
     display: block;
@@ -49,7 +48,6 @@
 }
 
 .note-add form>input:focus {
-    /* background-color: white; */
     box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
     border: none;
 }
@@ -59,14 +57,18 @@
 }
 
 .note-edit-type {
+    display: none;
     text-align: center;
-    display: flex;
     gap: 1.5em;
     align-items: center;
     position: relative;
     height: 0;
     margin-block-start: 2em;
-    margin-inline-start: 1em;
+    margin-inline-start: .5em;
+}
+
+.note-add form.show-all .note-edit-type {
+    display: flex;
 }
 
 .note-edit-type>input {
@@ -76,7 +78,6 @@
 .note-edit-type>label {
     font-size: 1em;
     margin-bottom: 2rem;
-    /* scale: 1.1; */
     transition: all 0.2s;
 }
 
@@ -90,4 +91,8 @@
     color: black;
 }
 
-
+@media (min-width: 40em) {
+    .note-edit-type {
+        display: flex;
+    }
+}
