@@ -3,7 +3,7 @@ export default {
     template: `
         <article ref="notePreview" :style="styleObject" class="note-preview">
             <h2>{{note.info.title}}</h2>
-            <iframe 
+            <iframe @click.prevent="stop"
                 :src="getVidUrl"
                 width = "100%">
             </iframe>
@@ -23,4 +23,9 @@ export default {
             return `https://www.youtube.com/embed/${url}`
         }
     },
+    methods: {
+        stop(){
+            console.log('stop');
+        }
+    }
 }
