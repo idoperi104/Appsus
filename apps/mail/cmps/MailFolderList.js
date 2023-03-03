@@ -29,11 +29,11 @@ export default {
                    <span v-if="checkStatus('trash')" :data-title="unReadTitle">{{unReadCount}}</span>
                 </li>
 
-                <li :class="isActive('draft')" @click="filterBy.status = 'draft'">
+                <!-- <li :class="isActive('draft')" @click="filterBy.status = 'draft'">
                    <i class="fa-regular fa-file"></i>
                     Draft 
                    <span v-if="checkStatus('draft')" :data-title="unReadTitle">{{unReadCount}}</span>
-                </li>
+                </li> -->
 
             </ul>
             <ul v-if="isClose" class="clean-list">
@@ -42,7 +42,7 @@ export default {
                 <li :class="isActive('star')"  @click="filterBy.status = 'star'"><i class="fa-regular fa-star"></li>
                 <li :class="isActive('sent')" @click="filterBy.status = 'sent'"><i class="fa-regular fa-paper-plane"></li>
                 <li :class="isActive('trash')" @click="filterBy.status = 'trash'"><i class="fa-solid fa-trash-can"></li>
-                <li :class="isActive('draft')" @click="filterBy.status = 'draft'"><i class="fa-regular fa-file"></li>
+                <!-- <li :class="isActive('draft')" @click="filterBy.status = 'draft'"><i class="fa-regular fa-file"></li> -->
             </ul>
         </section>
     `,
