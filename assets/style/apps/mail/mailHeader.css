@@ -21,7 +21,6 @@
 }
 
 .mail-logo i {
-    padding-inline-start: var(--mailPageStart);
     cursor: pointer;
 }
 
@@ -116,6 +115,10 @@
 @media(max-width: 625px) {
     .main-mail-header h1 {
         display: none;
+    }
+    
+    .mail-logo i {
+        padding-inline-start: var(--mailPageStart);
     }
 
     .main-mail-header {
