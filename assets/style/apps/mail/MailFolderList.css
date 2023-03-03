@@ -5,7 +5,7 @@
 
 .mail-folder-list ul {
     position: sticky;
-    top: 1rem;
+    top: calc(var(--mainHeader) + 1rem);
 }
 
 .mail-folder-list ul li {

@@ -1,26 +1,45 @@
 .app-header {
-  background-color: var(--clr5);
-  color: var(--secondary-clr1);
+  background-color: var(--clr2);
+  color: var(--clr4);
   padding-inline: 1em;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
   height: var(--mainHeader);
 }
 
-.app-header h1{
+.app-header h1 {
   margin: 0;
 }
 
-.app-header nav > *{
+.app-header button.fa-grip-vertical {
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--clr2);
+/* 
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1; */
+}
+
+.app-header button.fa-grip-vertical[data-title]::after {
+  bottom: -18px;
+  left: 5px;
+}
+
+.app-header button.fa-grip-vertical:hover {
+  background-color: var(--note3);
+}
+
+.app-header .app-nav>* {
   margin-inline-start: 1rem;
 }
 
-@media(max-width: 720px) {
-  .app-header {
-    background-color: var(--clr3);
-    color: var(--secondary-clr2);
-  }
-}
+@media(max-width: 720px) {}

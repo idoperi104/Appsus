@@ -13,6 +13,7 @@ export default {
                     <button :class="(mail.isRead) ? 'fa-eye-slash' : 'fa-eye'" class="mail-btn-unRead fa-solid" :data-title="(mail.isRead) ? 'Mark as un read' : 'Mark as read'" @click="unRead(mail)"></button>
                 </li>
             </ul>
+            <h3 v-if="!mails.length" >There are no mails to show in this category</h3>
         </section>
     `,
     methods: {

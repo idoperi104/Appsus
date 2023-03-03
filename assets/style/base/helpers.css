@@ -60,6 +60,24 @@
     color: #f3d529;
 }
 
+.google-logos {
+    height: 50px;
+    width: 64px;
+    background-image: url(https://ssl.gstatic.com/gb/images/sprites/p_1x_451184c1472c.png);
+    margin: 0;
+}
+
+.logo-keep {
+    background-position-y: 816px;
+}
+
+.logo-gmail {
+    background-position-y: 885px;
+}
+
+.logo-book {
+    background-position-y: 400px;
+}
 
 [data-title] {
     position: relative;

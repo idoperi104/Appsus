@@ -1,6 +1,11 @@
 .mail-list {
     padding: 10px;
 }
+.mail-list >h3 {
+    padding: 10px;
+    color: var(--clr3);
+    opacity: .8;
+}
 
 .mail-list ul >*:first-child {
     border-top: 1px solid var(--clr4);

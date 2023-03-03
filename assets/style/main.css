@@ -11,6 +11,7 @@
 /* General Components */
 @import 'cmps/HomePage.css';
 @import 'cmps/AppHeader.css';
+@import 'cmps/MainNav.css';
 @import 'cmps/AppFooter.css';
 @import 'cmps/UserMsg.css';
 
