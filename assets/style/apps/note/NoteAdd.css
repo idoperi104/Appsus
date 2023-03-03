@@ -1,13 +1,13 @@
 .note-add {
     display: grid;
-    grid-template-rows: 1fr 3em;
-
+    margin-block-end: 1.5em;
     margin-inline: .5em ;
+    padding-inline: 1em;
 }
 
 
 .note-add form {
-    width: clamp(100px, 100%, 600px);
+    width: clamp(0px, 100%, 600px);
 
     margin: auto;
 

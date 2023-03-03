@@ -27,7 +27,7 @@ export default {
                         <input @input="setType" type="radio" id="note-edit-txt" value="NoteTxt" v-model="note.type">
                         <label for="note-edit-txt" class="fa-regular fa-file-lines"></label>
                         <input @input="setType" type="radio" id="note-edit-img" value="NoteImg" v-model="note.type">
-                        <label for="note-edit-img"class="fa-regular fa-image"></label>
+                        <label for="note-edit-img" class="fa-regular fa-image"></label>
                         <input @input="setType" type="radio" id="note-edit-vid" value="NoteVideo" v-model="note.type">
                         <label for="note-edit-vid" class="fa-solid fa-video"></label>
                         <input @input="setType" type="radio" id="note-edit-todo" value="NoteTodos" v-model="note.type">

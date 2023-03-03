@@ -8,7 +8,7 @@ export default {
             <input @input="filter" type="radio" id="txt" value="NoteTxt" v-model="filterBy.type">
             <label for="txt" class="fa-regular fa-file-lines"></label>
             <input @input="filter" type="radio" id="img" value="NoteImg" v-model="filterBy.type">
-            <label for="img"class="fa-regular fa-image"></label>
+            <label for="img" class="fa-regular fa-image"></label>
             <input @input="filter" type="radio" id="vid" value="NoteVideo" v-model="filterBy.type">
             <label for="vid" class="fa-solid fa-video"></label>
             <input @input="filter" type="radio" id="todo" value="NoteTodos" v-model="filterBy.type">

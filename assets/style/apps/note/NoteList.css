@@ -1,9 +1,10 @@
 
 
 .note-list ul {
-    columns: auto 10em;
-    padding: 5px;
+    columns: 2;
+    padding-inline: 1em;
     list-style-type: none;
+    /* margin-block-start: 0px; */
 }
 
 .note-list li{
@@ -40,10 +41,32 @@
     opacity: 1;
 }
 
+.note-list h2 {
+    font-size: 1em;
+    overflow: hidden;
+}
+
+.note-list p {
+    font-size: .8em;
+    overflow: hidden;
+}
+
+@media(min-width: 30em) {
+    .note-list ul {
+        columns: 3;
+    }
+    
+}
 
 @media(min-width: 40em) {
     .note-list ul {
         columns: auto 12em;
+    }
+    .note-list h2 {
+        font-size: 1.3em;
+    }
+    .note-list p {
+        font-size: 1em;
     }
     
 }
