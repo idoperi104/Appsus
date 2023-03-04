@@ -36,6 +36,19 @@
     right: .5em;
 }
 
+.note-add .btn-add-Todo {
+    border-radius: .4rem;
+    border: none;
+    background-color: var(--clr2);
+    position: absolute;
+    top: 4.5em;
+    right: .5em;
+}
+
+.input-add-todo  {
+    max-width: calc(100% - 40px);
+}
+
 .note-add form>input {
     padding: .6em;
     width: 100%;

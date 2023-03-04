@@ -2,6 +2,8 @@ import { noteService } from "../services/note.service.js"
 import { showUserMsg, showSuccessMsg, showErrorMsg } from '../../../services/event-bus.service.js'
 
 import ColorPalette from '../cmps/ColorPalette.js'
+import NoteTodos from './NoteTodos.js'
+
 
 export default {
     template: `
@@ -18,6 +20,26 @@ export default {
                 <img v-if="note.type === 'NoteImg' && note.info.url" :src="note.info.url"/>
                 <input v-if="note.type === 'NoteImg' || note.type === 'NoteVideo'" name="url" type="text"
                     autocomplete="off" v-model="note.info.url" placeholder="enter url...">
+
+                    <input 
+                        v-if="isShowAll && note.type === 'NoteTodos'" 
+                        name="todo" 
+                        type="text" 
+                        v-model="nextTodo" 
+                        placeholder="enter Todo..."
+                        class="input-add-todo"
+                        ref="inputTodo">
+                    <button 
+                        v-if="isShowAll && note.type === 'NoteTodos'"
+                        class="btn-add-Todo" 
+                        @click.prevent="addTodo">+
+                    </button>
+                <Component 
+                    :is="note.type"
+                    v-if="isShowAll && note.type === 'NoteTodos'"
+                    :note="note"
+                    @save="saveNote" 
+                />
                 
                 <ColorPalette
                     v-if="isShowAll"
@@ -45,10 +67,10 @@ export default {
         return {
             note: noteService.getEmptyNote(),
 
-
             // isShowAll: true,
             // ////////
             isShowAll: false,
+            nextTodo: '',
         }
     },
     created() {
@@ -90,6 +112,10 @@ export default {
             this.note.style.backgroundColor = color
             this.$refs.form.style.backgroundColor = color
         },
+        addTodo(){
+            this.note.info.todos.push({todo: this.nextTodo, isMarked:false})
+            this.$refs.inputTodo.value = ''
+        }
     },
     mounted() {
         window.addEventListener('click', this.setIsShowFalse)
@@ -100,6 +126,7 @@ export default {
     },
     components: {
         ColorPalette,
+        NoteTodos,
     }
 
 }

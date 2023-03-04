@@ -2,6 +2,8 @@ import { noteService } from "../services/note.service.js"
 import { showUserMsg, showSuccessMsg, showErrorMsg } from '../../../services/event-bus.service.js'
 
 import ColorPalette from '../cmps/ColorPalette.js'
+import NoteTodos from './NoteTodos.js'
+
 
 export default {
     template: `
@@ -36,8 +38,6 @@ export default {
                 
                 <!-- <label for="bg-color">bg-color:</label> -->
                 <!-- <input name="bg-color" type="color" v-model="note.style.backgroundColor" placeholder="write note"> -->
-
-                
 
                 <button class="btn-save">Save</button>
             </form>
@@ -105,6 +105,7 @@ export default {
     },
     components: {
         ColorPalette,
+        NoteTodos,
     }
 
 }

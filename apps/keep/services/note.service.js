@@ -54,6 +54,7 @@ function getEmptyNote() {
             txt: '',
             title: '',
             url: '',
+            todos: []
         }
     }
 }
@@ -62,6 +63,45 @@ function _createNotes() {
     let notes = utilService.loadFromStorage(NOTE_KEY)
     if (!notes || !notes.length) {
         notes = [
+            {
+                id: 'n543',
+                createdAt: 1112222,
+                type: 'NoteTodos',
+                isPinned: true,
+                style: {
+                    backgroundColor: '#fff'
+                }, 
+                info: {
+                    txt: 'im totod!',
+                    todos: [
+                        {
+                            todo: 'asasasas',
+                            isMarked: false,
+                        },
+                        {
+                            todo: 'asasasas',
+                            isMarked: true,
+                        },
+                        {
+                            todo: 'asasasas',
+                            isMarked: true,
+                        },
+                        {
+                            todo: 'asasasas',
+                            isMarked: false,
+                        },
+                        {
+                            todo: 'asasasas',
+                            isMarked: true,
+                        },
+                        {
+                            todo: 'asasasas',
+                            isMarked: true,
+                        },
+                        
+                    ]
+                }
+            },
             {
                 id: 'n101',
                 createdAt: 1112222,
@@ -152,18 +192,6 @@ function _createNotes() {
                 }, info: {
                     title: 'im video!',
                     url: 'https://www.youtube.com/watch?v=u044iM9xsWU'
-                }
-            },
-            {
-                id: 'n543',
-                createdAt: 1112222,
-                type: 'NoteTodos',
-                isPinned: false,
-                style: {
-                    backgroundColor: '#fff'
-                }, 
-                info: {
-                    txt: 'im totod!'
                 }
             },
             {

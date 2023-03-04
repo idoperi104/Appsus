@@ -5,6 +5,7 @@ export default {
             <div v-if="isShow" class="palette">
                 <button 
                     v-for="color in colors"
+                    key="color"
                     @click.prevent="sendColor(color)" 
                     :style={backgroundColor:color}
                     class="btn-palette">

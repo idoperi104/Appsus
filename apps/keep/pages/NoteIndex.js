@@ -41,6 +41,7 @@ export default {
                     :notes="getPinned"
                     v-if="notes && getPinned && filterBy"
                     @remove="removeNote"
+                    @save="saveNote"
                     @isOnEdit="setIsOnEdit"
                     @pin="togglePin" 
                     @duplicate="duplicateNote"
@@ -52,6 +53,7 @@ export default {
                     :notes="getUnPinned"
                     v-if="notes && filterBy"
                     @remove="removeNote"
+                    @save="saveNote"
                     @isOnEdit="setIsOnEdit"
                     @pin="togglePin" 
                     @duplicate="duplicateNote"
@@ -105,6 +107,9 @@ export default {
         queryNotes() {
             noteService.query()
                 .then(notes => this.notes = notes)
+        },
+        saveNote(note){
+            noteService.save(note)
         }
     },
     computed: {

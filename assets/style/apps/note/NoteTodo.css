@@ -1,0 +1,24 @@
+
+/* .todos-preview{
+    display: flex;
+} */
+
+
+.todo-task{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: .5em;
+}
+
+.btn-remove-todo{
+    min-width: 0px;
+    min-height: 0px;
+
+    width: 2em;
+    height: 2em;
+
+    border-radius: .5em;
+    border: none;
+
+}

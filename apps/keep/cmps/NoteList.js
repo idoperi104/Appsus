@@ -16,8 +16,18 @@ export default {
 
                     <Component 
                         :is="note.type"
+                        v-if="note.type !== 'NoteTodos'"
                         :note="note" 
                         @click.prevent="edit(note.id)"
+                        @save="saveNote"
+                        @remove="remove" 
+                    />
+                    <Component 
+                        :is="note.type"
+                        v-if="note.type === 'NoteTodos'"
+                        :note="note"
+                        @save="saveNote"
+                        @remove="remove" 
                     />
 
                     <button class="fa-regular fa-trash-can" @click="remove(note.id)"></button>
@@ -73,6 +83,9 @@ export default {
         save(note){
             console.log(note);
             noteService.save(note)
+        },
+        saveNote(note){
+            this.$emit('save', note)
         }
     },
     components: {
