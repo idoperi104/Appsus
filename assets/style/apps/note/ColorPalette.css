@@ -6,36 +6,25 @@
     position: absolute;
     top: 0;
     right: 0;
-
-    /* z-index:1; */
 }
 
 .palette-edit.color-palette {
-
     position: absolute;
     top: 0;
     right: 40px;
-    /* background-color: transparent; */
-
-
-    /* z-index:1; */
 }
-
-
-
-
 
 .color-palette button {
     border: none;
     background-color: transparent;
 }
+
 form .color-palette button {
     border: none;
     background-color: transparent;
 }
 
 .palette {
-    /* background-color: aquamarine; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -50,14 +39,10 @@ form .color-palette button {
 
     position: absolute;
     z-index: 1;
-    /* transform: translateX(-50%); */
     right: 0;
-    /* top: 45px; */
-
-    /* display: none; */
 }
 
-.palette-edit .palette{
+.palette-edit .palette {
     top: 40px;
 }
 
@@ -68,9 +53,7 @@ form .color-palette button {
     min-height: 0px;
 }
 
-
-.palette-li.color-palette{
+.palette-li.color-palette {
     top: auto;
     bottom: .3em;
 }
-

@@ -5,15 +5,12 @@
     padding-inline: 1em;
 }
 
-
 .note-add form {
-    width: clamp(0px, 100%, 600px);
-
-    margin: auto;
-
     display: flex;
     gap: 1em;
 
+    width: clamp(0px, 100%, 600px);
+    margin: auto;
     padding: .5em;
     background-color: var(--clr1);
     border-radius: .3em;

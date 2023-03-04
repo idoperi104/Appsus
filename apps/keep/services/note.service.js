@@ -1,5 +1,6 @@
 import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
+import notesDB from "../data/notes.json" assert { type: "json" }
 
 const NOTE_KEY = 'noteDB'
 
@@ -62,160 +63,11 @@ function getEmptyNote() {
 function _createNotes() {
     let notes = utilService.loadFromStorage(NOTE_KEY)
     if (!notes || !notes.length) {
-        notes = [
-            {
-                id: 'n543',
-                createdAt: 1112222,
-                type: 'NoteTodos',
-                isPinned: true,
-                style: {
-                    backgroundColor: '#fff'
-                }, 
-                info: {
-                    txt: 'im totod!',
-                    todos: [
-                        {
-                            todo: 'asasasas',
-                            isMarked: false,
-                        },
-                        {
-                            todo: 'asasasas',
-                            isMarked: true,
-                        },
-                        {
-                            todo: 'asasasas',
-                            isMarked: true,
-                        },
-                        {
-                            todo: 'asasasas',
-                            isMarked: false,
-                        },
-                        {
-                            todo: 'asasasas',
-                            isMarked: true,
-                        },
-                        {
-                            todo: 'asasasas',
-                            isMarked: true,
-                        },
-                        
-                    ]
-                }
-            },
-            {
-                id: 'n101',
-                createdAt: 1112222,
-                type: 'NoteTxt',
-                isPinned: false,
-                style: {
-                    backgroundColor: '#fff'
-                }, info: {
-                    txt: 'Fullstack Me Baby!'
-                }
-            },
-            {
-                id: 'n201',
-                createdAt: 1112222,
-                type: 'NoteTxt',
-                isPinned: true,
-                style: {
-                    backgroundColor: '#eee'
-                }, info: {
-                    txt: utilService.makeLorem(30)
-                }
-            },
-            {
-                id: 'n301',
-                createdAt: 1112222,
-                type: 'NoteTxt',
-                isPinned: false,
-                style: {
-                    backgroundColor: '#fff'
-                }, info: {
-                    txt: 'puki muki shuki!'
-                }
-            },
-            {
-                id: 'n401',
-                createdAt: 1112222,
-                type: 'NoteTxt',
-                isPinned: true,
-                style: {
-                    backgroundColor: '#eee'
-                }, info: {
-                    txt: utilService.makeLorem()
-                }
-            },
-            {
-                id: 'nf43',
-                createdAt: 1112222,
-                type: 'NoteImg',
-                isPinned: false,
-                style: {
-                    backgroundColor: '#fff'
-                }, info: {
-                    title: 'im img!',
-                    url: 'https://cdn.pixabay.com/photo/2016/11/29/04/19/ocean-1867285__340.jpg'
-                }
-            },
-            {
-                id: 'nf93',
-                createdAt: 1112222,
-                type: 'NoteImg',
-                isPinned: false,
-                style: {
-                    backgroundColor: '#fff'
-                }, info: {
-                    title: 'im img!',
-                    url: 'https://thumbs.dreamstime.com/b/beach-sea-18378306.jpg'
-                }
-            },
-            {
-                id: 'nf9534',
-                createdAt: 1112222,
-                type: 'NoteImg',
-                isPinned: false,
-                style: {
-                    backgroundColor: '#fff'
-                }, info: {
-                    title: 'im img!',
-                    url: 'https://www.galvanizeaction.org/wp-content/uploads/2022/06/Wow-gif.gif'
-                }
-            },
-            {
-                id: 'n234',
-                createdAt: 1112222,
-                type: 'NoteVideo',
-                isPinned: true,
-                style: {
-                    backgroundColor: '#eee'
-                }, info: {
-                    title: 'im video!',
-                    url: 'https://www.youtube.com/watch?v=u044iM9xsWU'
-                }
-            },
-            {
-                id: 'n445',
-                createdAt: 1112222,
-                type: 'NoteVideo',
-                isPinned: true,
-                style: {
-                    backgroundColor: '#eee'
-                }, info: {
-                    title: 'im video!',
-                    url: 'https://www.youtube.com/watch?v=TwsLizKaCxs'
-                }
-            },
-        ]
+        notes = notesDB
         utilService.saveToStorage(NOTE_KEY, notes)
     }
 }
 
-// function _createNote(vendor, maxSpeed = 250) {
-//     const car = getEmptyNote(vendor, maxSpeed)
-//     car.id = utilService.makeId()
-//     return car
-// }
 
 function _setNextPrevNoteId(note) {
     return storageService.query(NOTE_KEY).then((notes) => {
