@@ -9,7 +9,8 @@ export default {
                 class="fa-solid fa-bars"
                 :class="btnClass">
             </button>
-            <NoteFilter 
+            <NoteFilter
+                :filterBy="lastFilter" 
                 v-if="isShow"
                 @filter="setFilterBy"
             />
@@ -18,6 +19,7 @@ export default {
     data() {
         return {
             isShow: this.setIsShow(),
+            lastFilter: { txt: '', type: '' }
         }
     },
     computed: {
@@ -28,6 +30,7 @@ export default {
     methods: {
         setFilterBy(filterBy) {
             this.$emit('filter', filterBy)
+            this.lastFilter = filterBy
             if (window.innerWidth < 640) this.isShow = false
         },
         setIsShow(){

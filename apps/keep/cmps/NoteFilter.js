@@ -1,4 +1,5 @@
 export default {
+    props: ['filterBy'],
     template: `
 
         <section class="note-filter">
@@ -19,7 +20,7 @@ export default {
     `,
     data() {
         return {
-            filterBy: { txt: '', type: '' },
+            // filterBy: { txt: '', type: '' },
         }
     },
     methods: {
