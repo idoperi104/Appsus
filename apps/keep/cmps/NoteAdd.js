@@ -97,7 +97,6 @@ export default {
                 })
         },
         setType() {
-            console.log(this.type);
             this.note.type = this.type
         },
         setIsShowFalse() {

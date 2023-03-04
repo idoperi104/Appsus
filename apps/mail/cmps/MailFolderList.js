@@ -77,7 +77,6 @@ export default {
     watch: {
         filterBy: {
             handler() {
-                console.log('filterBy changed', this.filterBy)
                 this.$emit('filter', this.filterBy)
             },
             deep: true

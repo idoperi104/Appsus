@@ -33,7 +33,6 @@ export default {
             
         note: {
             handler() {
-                console.log('www');
                 if (this.note.info.todos.length === 0) this.$emit('remove', this.note.id)
             },
             deep: true

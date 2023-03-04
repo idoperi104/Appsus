@@ -78,7 +78,6 @@ export default {
             this.isCompose = !this.isCompose
         },
         removeMail(mailId) {
-            console.log("mailId: ", mailId);
             if (this.filterBy.status !== 'trash') {
                 mailService.get(mailId)
                     .then(mail => {

@@ -64,7 +64,6 @@ export default {
     },
     watch: {
         noteId() {
-            console.log('noteId Changed!')
             this.loadNote()
         }
     },
@@ -92,7 +91,6 @@ export default {
             this.$emit('isOnEdit', false)
         },
         setType() {
-            console.log(this.type);
             this.note.type = this.type
         },
         setColor(color) {

@@ -98,7 +98,6 @@ export default {
             noteService.save(note)
         },
         duplicateNote(note) {
-            console.log(note);
             const dup = JSON.parse(JSON.stringify(note))
             dup.id = ''
             noteService.save(dup)

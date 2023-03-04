@@ -27,7 +27,6 @@ export default {
     },
     methods: {
         setFilterBy(filterBy) {
-            console.log(filterBy);
             this.$emit('filter', filterBy)
             if (window.innerWidth < 640) this.isShow = false
         },
@@ -35,7 +34,6 @@ export default {
             return window.innerWidth < 640 ? false : true
         },
         closeIsShow(ev){
-            console.log(ev);
             if (this.isShow && window.innerWidth < 640 && ev.clientX > 80) this.isShow = false
         },
     },

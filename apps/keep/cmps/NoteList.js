@@ -81,7 +81,6 @@ export default {
             }
         },
         save(note){
-            console.log(note);
             noteService.save(note)
         },
         saveNote(note){
