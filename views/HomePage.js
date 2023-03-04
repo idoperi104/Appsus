@@ -31,11 +31,11 @@ export default {
                     <div class="home-cards creators">
                         <div class="logo-img">
                             <h3>Ido Peri</h3>
-                            <img class="logo-img passport" src="../assets/img/idoLogo.jpg" alt="" />
+                            <img class="logo-img passport" src="/../assets/img/idoLogo.jpg" alt="" />
                         </div>
                         <div class="logo-img">
                             <h3>Tomer Huberman</h3>
-                            <img class="logo-img passport" src="../assets/img/tomerLogo.jpg" alt="" />
+                            <img class="logo-img passport" src="/../assets/img/tomerLogo.jpg" alt="" />
                         </div>
                     </div>
                 </div>
