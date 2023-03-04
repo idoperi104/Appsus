@@ -45,11 +45,10 @@ function save(note) {
 
 function getEmptyNote() {
     return {
-        createdAt: 1112222,
         type: 'NoteTxt',
         isPinned: false,
         style: {
-            backgroundColor: '#eeeeee'
+            backgroundColor: '#f0efeb'
         },
         info: {
             txt: '',
