@@ -13,10 +13,6 @@ export default {
             <div class="google-logos logo-keep"></div>
                 <span>Keep</span>
             </RouterLink>
-            <RouterLink @click="closeNav" class="main-nav-link" to="/" >
-            <div class="google-logos logo-book"></div>
-                <span>Book</span>
-            </RouterLink>
             <RouterLink @click="closeNav" class="main-nav-link" to="/#about" >
             <div class="fa-solid fa-info"></div>
                 <span>About</span>
