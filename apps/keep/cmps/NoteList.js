@@ -12,7 +12,7 @@ export default {
     template: `
         <section class="note-list">
             <ul>
-                <li v-for="note in notes" :style=getStyle(note) :key="note.id">
+                <li v-for="note in notes" :style=getStyle(note) :key="note.id" id="note.id">
 
                     <Component 
                         :is="note.type"

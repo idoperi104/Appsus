@@ -25,7 +25,7 @@ export default {
                 </div>
             </section>
 
-            <section class="home-section">
+            <section id="about" class="home-section">
                 <div ref="sec2" class="home-container reveal">
                     <h2>creators:</h2>
                     <div class="home-cards creators">
@@ -40,6 +40,7 @@ export default {
                     </div>
                 </div>
             </section>
+        </section>
     `,
     data(){
         return {

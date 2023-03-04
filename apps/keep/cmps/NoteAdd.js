@@ -89,7 +89,7 @@ export default {
                     this.note = noteService.getEmptyNote()
                     this.$emit('saved', savedNote)
                     this.$emit('isOnEdit', false)
-                    this.$router.push({ query: { noteId: '' } })
+                    this.$router.push({ query: { noteId: '' }})
                     showSuccessMsg('note saved')
                 })
                 .catch(err => {
