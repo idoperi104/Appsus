@@ -1,13 +1,46 @@
 .mail-list {
     padding: 10px;
 }
-.mail-list >h3 {
+
+.mail-list>h3 {
     padding: 10px;
     color: var(--clr3);
     opacity: .8;
+    position: sticky;
+    top: var(--mainHeader);
 }
 
-.mail-list ul >*:first-child {
+.mail-list .mail-sort-by {
+    height: 25px;
+    display: grid;
+    grid-template-columns: 5% 20% 65% 10%;
+    align-items: center;
+    font-size: 1rem;
+    padding: 8px 8px 30px 8px;
+}
+
+.mail-list .mail-sort-by label {
+    margin: 0;
+    cursor: pointer;
+}
+
+.mail-list .mail-sort-by .mail-sort-subject {
+    grid-column: 2;
+}
+
+.mail-list .mail-sort-by .mail-sort-date {
+    grid-column: 4;
+}
+
+.mail-list .mail-sort-by button {
+    min-width: 10px;
+    min-height: 15px;
+    margin-inline-start: 2px;
+    border: 0;
+    background-color: #ffffff00;
+}
+
+.mail-list ul>*:first-child {
     border-top: 1px solid rgba(45, 44, 44, 0.119);
 }
 
@@ -66,13 +99,16 @@
     .mail-preview h3 {
         font-size: .7rem;
     }
+
+    .mail-list .mail-sort-by {
+        font-size: .9rem;
+    }
 }
 
-@media(max-width: 600px) {
+@media(max-width: 660px) {
     .mail-preview {
         grid-template-columns: 1fr 20%;
         grid-template-rows: 30% 1fr;
-
     }
 
     .mail-preview h2 {
@@ -81,12 +117,12 @@
         margin-bottom: 6px;
     }
 
-    .mail-preview >h3:first-child {
+    .mail-preview>h3:first-child {
         grid-column: 1;
         grid-row: 2;
     }
 
-    .mail-preview >h3:last-child {
+    .mail-preview>h3:last-child {
         grid-column: 2;
         grid-row: 1;
         justify-self: end;
@@ -96,5 +132,34 @@
         grid-column: 2;
         grid-row: 2;
         justify-self: end;
+    }
+
+    .mail-list>h3 {
+        font-size: .7rem;
+    }
+    
+    .mail-list .mail-sort-by {
+        grid-template-columns: 1fr 20%;
+        font-size: .7rem;
+    }
+    
+    .mail-list .mail-sort-by button{
+        font-size: .7rem;
+        margin-inline-start: -3px;
+    }
+
+    .mail-list .mail-sort-by .mail-sort-subject {
+        grid-column: 1;
+    }
+
+    .mail-list .mail-sort-by .mail-sort-date {
+        grid-column: 2;
+        justify-self: end;
+    }
+}
+
+@media(max-width: 390px) {
+    .mail-preview {
+        grid-template-columns: 1fr 30%;
     }
 }

@@ -1,12 +1,41 @@
-.app-footer{
+.app-footer {
     height: var(--mainFooter);
     display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
     justify-items: center;
     align-items: center;
-    background-color: var(--mail-1);
+    background-color: var(--clr2);
 }
-.app-footer p{
-    margin: 0;
+
+.app-footer p {
+    margin: 0 10px;
     font-size: 1.2rem;
 }
 
+.footer-img {
+    max-width: 4rem;
+    max-height: 4rem;
+    box-shadow: 0 0 2px 2px #fff;
+}
+
+@media(max-width: 860px) {
+    .app-footer p {
+        font-size: 1rem;
+    }
+}
+
+@media(max-width: 730px) {
+    .app-footer p {
+        font-size: .8rem;
+    }
+}
+
+@media(max-width: 360px) {
+    .app-footer p {
+        font-size: .6rem;
+    }
+    .footer-img {
+        max-width: 3rem;
+        max-height: 3rem;
+    }
+}

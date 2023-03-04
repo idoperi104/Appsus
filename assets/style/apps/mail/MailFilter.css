@@ -2,6 +2,12 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+}
+
+.mail-filter .mail-filter-container {
     position: relative;
 }
 
@@ -61,7 +67,6 @@
 
 .mail-filter input {
     width: 90%;
-    min-width: 300px;
     max-width: 500px;
     display: block;
     box-sizing: border-box;

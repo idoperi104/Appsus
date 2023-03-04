@@ -1,7 +1,11 @@
 export default {
-	template: `
+    template: `
         <footer class="app-footer">
-            <p>&copy; Coffeerights this app made by Ido Peri & Tomer Huberman</p>
+            <img class="footer-img passport" src="assets/img/idoLogo.jpg" alt="" />
+            <p>&copy; Coffeerights this app made by 
+                Ido Peri & 
+                Tomer Huberman</p>
+                <img class="footer-img passport" src="assets/img/tomerLogo.jpg" alt="" />
         </footer>
     `,
 }

@@ -1,39 +1,40 @@
-.home-section{
+.home-section {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.home-section:first-child{
+.home-section:first-child {
     min-height: calc(100vh - var(--mainHeader));
 }
 
-.home-section:not(:first-child){
+.home-section:not(:first-child) {
     min-height: 100vh;
 }
 
-.home-section:nth-child(1){
+.home-section:nth-child(1) {
     color: var(--h1);
     background-color: var(--bgh1);
 }
 
-.home-section:nth-child(2){
+.home-section:nth-child(2) {
     color: var(--h2);
     background-color: var(--bgh2);
 }
 
-.home-section:nth-child(3){
+.home-section:nth-child(3) {
     color: var(--h1);
     background-color: var(--bgh1);
 }
 
-.home-section:nth-child(4){
+.home-section:nth-child(4) {
     color: var(--h2);
     background-color: var(--bgh2);
 }
 
-.home-section .home-container{
+.home-section .home-container {
     margin: 100px;
+    margin-top: 0;
 }
 
 .home-section h1 {
@@ -47,31 +48,31 @@
     text-transform: 40px;
 }
 
-.home-section .home-cards{
+.home-section .home-cards {
     display: flex;
     flex-direction: column;
 }
 
-.home-section .home-cards .text-cards{
+.home-section .home-cards .text-cards {
     background: var(--bgh3);
     margin: 2em;
     padding: 2em;
 }
 
-.home-section .home-cards .text-cards h3{
+.home-section .home-cards .text-cards h3 {
     font-size: 30px;
     text-align: center;
     margin-block-end: 10px;
 }
 
-.reveal{
+.reveal {
     position: relative;
     transform: translateY(150px);
     opacity: 0;
     transition: all 2s ease;
 }
 
-.reveal.active{
+.reveal.active {
     transform: translateY(0);
     opacity: 1;
 }
@@ -85,7 +86,7 @@
     gap: 2.5em;
 }
 
-.logos a{
+.logos a {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,7 +94,7 @@
     /* height: 8em; */
 }
 
-.logo-img{
+.logo-img {
     max-width: 7em;
     max-height: 7em;
     /* margin: 2em; */
@@ -102,7 +103,7 @@
 }
 
 /* creators */
-.passport{
+.passport {
     border-radius: 50%;
 }
 
@@ -122,13 +123,13 @@
 
 
 /* media */
-@media (min-width:40em){
-    .logo-img{
+@media (min-width:40em) {
+    .logo-img {
         max-width: 12em;
         max-height: 12em;
     }
 
-    .home-section h2{
+    .home-section h2 {
         font-size: 50px;
     }
 
@@ -148,12 +149,12 @@
     }
 }
 
-@media (min-width: 900px){
-    .home-section h1{
+@media (min-width: 900px) {
+    .home-section h1 {
         font-size: 80px;
     }
 
-    .home-section .home-cards{
+    .home-section .home-cards {
         flex-direction: row;
     }
 
@@ -162,7 +163,7 @@
         gap: 8em;
     }
 
-    .logo-img{
+    .logo-img {
         max-width: 15em;
         max-height: 15em;
     }

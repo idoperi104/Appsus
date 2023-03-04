@@ -42,5 +42,3 @@
 .app-header .app-nav>* {
   margin-inline-start: 1rem;
 }
-
-@media(max-width: 720px) {}

@@ -3,10 +3,10 @@ import MainNav from './MainNav.js'
 export default {
     template: `
         <header class="app-header">
-            <h1>AppSus</h1>
+            <RouterLink  to="/">
+                <h1>AppSus</h1>
+            </RouterLink>
             <nav class="app-nav">
-                <!-- <RouterLink v-for="(route, idx) in routs" :to="route.path"
-                :title="route.name" :key="idx">{{route.name}}</RouterLink> -->
                 <button @click="showNav = !showNav" data-title="Apps" class="fa-solid fa-grip-vertical"></button>
                 <MainNav v-if="showNav" @closeNav="closeNav" />
             </nav>

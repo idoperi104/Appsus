@@ -8,7 +8,7 @@ export default {
                 <li :class="isActive('inbox')" @click="filterBy.status = 'inbox'">
                     <i class="fa-solid fa-inbox"></i> 
                     Inbox 
-                    <span v-if="checkStatus('inbox')": data-title="unReadTitle">{{unReadCount}}</span>
+                    <span v-if="checkStatus('inbox')" :data-title="unReadTitle">{{unReadCount}}</span>
                 </li>
 
                 <li :class="isActive('star')" @click="filterBy.status = 'star'">
@@ -23,7 +23,7 @@ export default {
                    <span v-if="checkStatus('sent')" :data-title="unReadTitle">{{unReadCount}}</span>
                 </li>
 
-                <li :class="isActive('trash')" @click="filterBy.status = 'trash'">
+                <li :class="isActive('trash')" @click="filterBy.status = 'trash' ">
                    <i class="fa-solid fa-trash-can"></i>
                     Trash 
                    <span v-if="checkStatus('trash')" :data-title="unReadTitle">{{unReadCount}}</span>

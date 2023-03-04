@@ -6,11 +6,13 @@ export default {
                 v-model="filterBy.subject"
                 placeholder="Search"
                 type="text" />
-                <button @click="toggleOptions" class="fa-solid fa-filter"></button>
-                <article v-if="showOptions" class="filter-options">                
-                    <button :class="{ 'filter-active': filterBy.isRead === 'all' }" @click="filterBy.isRead = 'all'">all</button>
-                    <button data-title="Read" class="fa-solid fa-eye" :class="{ 'filter-active': filterBy.isRead === 'read' }" @click="filterBy.isRead = 'read'"></button>
-                    <button data-title="Un read" class="fa-solid fa-eye-slash" :class="{ 'filter-active': filterBy.isRead === 'unRead' }" @click="filterBy.isRead = 'unRead'"></button>
+                <article class="mail-filter-container">
+                  <button @click="toggleOptions" class="fa-solid fa-filter"></button>
+                  <div v-if="showOptions" class="filter-options">                
+                      <button :class="{ 'filter-active': filterBy.isRead === 'all' }" @click="filterBy.isRead = 'all'">all</button>
+                      <button data-title="Read" class="fa-solid fa-eye" :class="{ 'filter-active': filterBy.isRead === 'read' }" @click="filterBy.isRead = 'read'"></button>
+                      <button data-title="Un read" class="fa-solid fa-eye-slash" :class="{ 'filter-active': filterBy.isRead === 'unRead' }" @click="filterBy.isRead = 'unRead'"></button>
+                   </div>
                 </article>
         </section>
     `,
@@ -41,7 +43,7 @@ export default {
             deep: true
         },
         'filterBy.isRead': {
-            handler(){
+            handler() {
                 this.showOptions = false
             }
         }
