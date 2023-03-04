@@ -13,11 +13,11 @@ export default {
                     <h2>Our Apps:</h2>
                     <div class="home-cards logos">
                         <RouterLink class="main-nav-link" to="/note" >
-                            <img class="logo-img" src="../assets/img/keepLogo.png" alt="" />
+                            <img class="logo-img" src="/../assets/img/keepLogo.png" alt="" />
                             <!-- <span>Keep</span> -->
                         </RouterLink>
                         <RouterLink @click="closeNav" class="main-nav-link" to="/mail" >
-                            <img class="logo-img" src="../assets/img/gmailLogo.png" alt="" />
+                            <img class="logo-img" src="/../assets/img/gmailLogo.png" alt="" />
                             <!-- <div class="google-logos logo-gmail"></div> -->
                             <!-- <span>G'amal</span> -->
                         </RouterLink>
