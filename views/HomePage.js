@@ -1,74 +1,51 @@
+
+
 export default {
     template: `
         <section class="home-page">
+
             <section class="home-section">
-                <h1>reveal elements on scroll</h1>
+                    <h1>Welocme to AppSus</h1>
             </section>
+
             <section class="home-section">
                 <div ref="sec1" class="home-container reveal">
-                    <h2>your title</h2>
-                    <div class="home-cards">
-                        <div class="text-cards">
-                            <h3>title</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quis ratione, magni nesciunt nisi quam libero repellendus. Incidunt suscipit iste perferendis laudantium nostrum aliquid. In molestiae omnis at blanditiis cum.</p>
-                        </div>
-                        <div class="text-cards">
-                            <h3>title</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quis ratione, magni nesciunt nisi quam libero repellendus. Incidunt suscipit iste perferendis laudantium nostrum aliquid. In molestiae omnis at blanditiis cum.</p>
-                        </div>
-                        <div class="text-cards">
-                            <h3>title</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quis ratione, magni nesciunt nisi quam libero repellendus. Incidunt suscipit iste perferendis laudantium nostrum aliquid. In molestiae omnis at blanditiis cum.</p>
-                        </div>
+                    <h2>Our Apps:</h2>
+                    <div class="home-cards logos">
+                        <RouterLink class="main-nav-link" to="/note" >
+                            <img class="logo-img" src="../assets/img/keepLogo.png" alt="" />
+                            <!-- <span>Keep</span> -->
+                        </RouterLink>
+                        <RouterLink @click="closeNav" class="main-nav-link" to="/mail" >
+                            <img class="logo-img" src="../assets/img/gmailLogo.png" alt="" />
+                            <!-- <div class="google-logos logo-gmail"></div> -->
+                            <!-- <span>G'amal</span> -->
+                        </RouterLink>
                     </div>
                 </div>
             </section>
+
             <section class="home-section">
                 <div ref="sec2" class="home-container reveal">
-                    <h2>your title</h2>
-                    <div class="home-cards">
-                        <div class="text-cards">
-                            <h3>title</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quis ratione, magni nesciunt nisi quam libero repellendus. Incidunt suscipit iste perferendis laudantium nostrum aliquid. In molestiae omnis at blanditiis cum.</p>
+                    <h2>creators:</h2>
+                    <div class="home-cards creators">
+                        <div class="logo-img">
+                            <h3>Ido Peri</h3>
+                            <img class="logo-img passport" src="../assets/img/idoLogo.jpg" alt="" />
                         </div>
-                        <div class="text-cards">
-                            <h3>title</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quis ratione, magni nesciunt nisi quam libero repellendus. Incidunt suscipit iste perferendis laudantium nostrum aliquid. In molestiae omnis at blanditiis cum.</p>
-                        </div>
-                        <div class="text-cards">
-                            <h3>title</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quis ratione, magni nesciunt nisi quam libero repellendus. Incidunt suscipit iste perferendis laudantium nostrum aliquid. In molestiae omnis at blanditiis cum.</p>
+                        <div class="logo-img">
+                            <h3>Tomer Huberman</h3>
+                            <img class="logo-img passport" src="../assets/img/idoLogo.jpg" alt="" />
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="home-section">
-                <div ref="sec3" class="home-container reveal">
-                    <h2>your title</h2>
-                    <div class="home-cards">
-                        <div class="text-cards">
-                            <h3>title</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quis ratione, magni nesciunt nisi quam libero repellendus. Incidunt suscipit iste perferendis laudantium nostrum aliquid. In molestiae omnis at blanditiis cum.</p>
-                        </div>
-                        <div class="text-cards">
-                            <h3>title</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quis ratione, magni nesciunt nisi quam libero repellendus. Incidunt suscipit iste perferendis laudantium nostrum aliquid. In molestiae omnis at blanditiis cum.</p>
-                        </div>
-                        <div class="text-cards">
-                            <h3>title</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis quis ratione, magni nesciunt nisi quam libero repellendus. Incidunt suscipit iste perferendis laudantium nostrum aliquid. In molestiae omnis at blanditiis cum.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </section>
     `,
     data(){
         return {
             reveals: [
                 'sec1',
                 'sec2',
-                'sec3',
             ],
         }
     },
@@ -92,5 +69,7 @@ export default {
     },
     unmounted(){
         window.removeEventListener('scroll', this.revealHomeSection)
+    },
+    components:{
     }
 }

@@ -1,8 +1,15 @@
 .home-section{
-    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.home-section:first-child{
+    min-height: calc(100vh - var(--mainHeader));
+}
+
+.home-section:not(:first-child){
+    min-height: 100vh;
 }
 
 .home-section:nth-child(1){
@@ -30,11 +37,11 @@
 }
 
 .home-section h1 {
-    font-size: 40px;
+    font-size: 50px;
 }
 
 .home-section h2 {
-    font-size: 40px;
+    font-size: 25px;
     text-align: center;
     text-transform: 40px;
 }
@@ -56,16 +63,6 @@
     margin-block-end: 10px;
 }
 
-@media (min-width: 900px){
-    .home-section h1{
-        font-size: 60px;
-    }
-
-    .home-section .home-cards{
-        flex-direction: row;
-    }
-}
-
 .reveal{
     position: relative;
     transform: translateY(150px);
@@ -76,4 +73,101 @@
 .reveal.active{
     transform: translateY(0);
     opacity: 1;
+}
+
+
+/* cards */
+
+.home-section .home-cards.logos {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5em;
+}
+
+.logos a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 8em; */
+    /* height: 8em; */
+}
+
+.logo-img{
+    max-width: 7em;
+    max-height: 7em;
+    /* margin: 2em; */
+    /* width: 100%; */
+    /* height: 100%; */
+}
+
+/* creators */
+.passport{
+    border-radius: 50%;
+}
+
+.home-section .home-cards.creators {
+    /* display: flex;
+    flex-direction: column; */
+    gap: 2.5em;
+}
+
+.logo-img h3 {
+    margin-block-end: .5em;
+    font-size: 15px;
+    text-align: center;
+}
+
+
+
+
+/* media */
+@media (min-width:40em){
+    .logo-img{
+        max-width: 12em;
+        max-height: 12em;
+    }
+
+    .home-section h2{
+        font-size: 50px;
+    }
+
+    .home-section .home-cards.logos {
+        flex-direction: row;
+        gap: 5em;
+    }
+
+    .home-section .home-cards.creators {
+        flex-direction: row;
+        gap: 5em;
+    }
+
+    .logo-img h3 {
+        margin-block-end: 1em;
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 900px){
+    .home-section h1{
+        font-size: 80px;
+    }
+
+    .home-section .home-cards{
+        flex-direction: row;
+    }
+
+    .home-section .home-cards.logos {
+        flex-direction: row;
+        gap: 8em;
+    }
+
+    .logo-img{
+        max-width: 15em;
+        max-height: 15em;
+    }
+
+    .logo-img h3 {
+        margin-block-end: 1em;
+        font-size: 30px;
+    }
 }
